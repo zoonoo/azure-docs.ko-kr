@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 47677fa54e2504f7d0eddb770cc25a35616c3579
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: c8aaad3067f1e9ec2cbb0b79b8aa3f6b3e772a33
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113093772"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823915"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service-classic"></a>Azure Cloud Service(클래식)에서 Socket.IO를 사용하여 Node.js 채팅 애플리케이션 빌드
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 AzureCloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Socket.IO는 Node.js 서버와 클라이언트 간에 실시간 통신을 제공합니다. 이 자습서는 Azure에서 채팅 애플리케이션을 기반으로 하는 socket.IO 호스팅에 대해 안내합니다. Socket.IO에 대한 자세한 내용은 [socket.io](https://socket.io)를 참조하세요.
 

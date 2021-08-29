@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: afc0a5bf9b83363d1f4baab955b55148fe3a8498
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb18eb5df675690a6bb5b796349c140a61949df1
+ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95818483"
+ms.lasthandoff: 06/21/2021
+ms.locfileid: "122207427"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "95818483"
 > * Event Grid를 통해 함수와 네임스페이스 연결
 > * Azure Functions를 사용하여 메시지 받기
 
-[!INCLUDE [service-bus-event-grid-prerequisites](../../includes/service-bus-event-grid-prerequisites.md)]
+[!INCLUDE [service-bus-event-grid-prerequisites](./includes/service-bus-event-grid-prerequisites.md)]
 
 ## <a name="additional-prerequisites"></a>추가 필수 조건
 [Visual Studio 2019](https://www.visualstudio.com/vs)를 설치하고 **Azure 개발** 워크로드를 포함시킵니다. 이 워크로드에는 Visual Studio에서 Azure Functions 프로젝트를 만들고 빌드하고 배포하는 데 필요한 **Azure 함수 도구** 가 들어 있습니다. 

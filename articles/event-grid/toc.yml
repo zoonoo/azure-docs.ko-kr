@@ -213,7 +213,13 @@
         - name: 이벤트 처리기에 대한 이벤트 전달 인증
           href: security-authentication.md
         - name: 클라이언트 게시 인증
-          href: security-authenticate-publishing-clients.md
+          items:
+            - name: 개요
+              href: authentication-overview.md
+            - name: Azure Active Directory를 사용하여 인증
+              href: authenticate-with-active-directory.md
+            - name: 액세스 키 또는 공유 액세스 서명을 사용하여 인증
+              href: authenticate-with-access-keys-shared-access-signatures.md
         - name: Event Grid 리소스에 대한 액세스 권한 부여
           href: security-authorization.md
         - name: 네트워크 보안
@@ -246,7 +252,7 @@
           href: auth0-how-to.md
     - name: 토픽 또는 도메인에 대한 액세스 키 가져오기
       href: get-access-keys.md
-    - name: 사용자 지정 항목에 게시
+    - name: 액세스 키를 사용하여 사용자 지정 항목에 게시
       href: post-to-custom-topic.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
