@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: d36f400e18566abf0631b5bec24fbfe6801fd299
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: 66a00319d2223879c693f8a670ca15808838459c
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112575139"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121861738"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>빠른 시작: MXCHIP AZ3166 DevKit를 IoT Central에 연결
 
@@ -137,7 +137,7 @@ MXCHIP DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 �
 
 1. **Termite** 를 시작합니다.
     > [!TIP]
-    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
+    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://www.st.com/en/development-tools/stsw-link009.html)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 1. **설정** 을 선택합니다.
 1. **직렬 포트 설정** 대화 상자에서 다음 설정을 확인하고, 필요한 경우 업데이트합니다.
     * **전송 속도**: 115,200

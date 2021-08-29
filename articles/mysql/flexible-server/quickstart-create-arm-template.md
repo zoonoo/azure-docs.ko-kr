@@ -7,14 +7,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: 9987205cc4ca29aa6e00f67cb384141f62c430e9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 85b7f9898906ffd34ce88fb2243534b5b53898de
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688080"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "122643609"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL - 유연한 서버 만들기
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -242,7 +244,7 @@ echo "Press [ENTER] to continue ..."
 ARM 템플릿을 만드는 과정을 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [첫 번째 ARM 템플릿 만들기 및 배포](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> 첫 번째 ARM 템플릿 만들기 및 배포[
 
 MySQL을 사용하여 App Service를 통해 앱을 빌드하는 단계별 자습서는 다음을 참조하세요.
 

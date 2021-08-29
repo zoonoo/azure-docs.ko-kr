@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 BrowserStack Single Sign-On으로 자동 프로비저닝 및 프로비저닝 해제 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 39999abc-e4a2-4058-81e0-bf88182f8864
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/22/2021
-ms.author: Zhchia
-ms.openlocfilehash: 200338ac50bceae6c3bf9730ee92a16c04a84b69
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: 5e3d33775fbf342f328cb4260607a540930ff22d
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141454"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327700"
 ---
 # <a name="tutorial-configure-browserstack-single-sign-on-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 BrowserStack Single Sign-On 구성
 
@@ -120,7 +120,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 BrowserStack Single Sign-on으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 BrowserStack Single Sign-On의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 BrowserStack Single Sign-On API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|필터링에 지원됨|
+   |attribute|Type|필터링 지원됨|
    |---|---|--|
    |userName|String|&check;|
    |name.givenName|String|

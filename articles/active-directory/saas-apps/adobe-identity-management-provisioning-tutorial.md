@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory를 사용하여 자동 사용자 프�
 description: 사용자 계정을 Azure AD에서 Adobe Identity Management로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 6ae05dc7-1265-44b4-a20c-512b5218b9d1
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2021
-ms.author: Zhchia
-ms.openlocfilehash: f9608a3a9e086cc6c03dc80f0666becbcbc06290
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.author: thwimmer
+ms.openlocfilehash: 504b0c40a2cf0b4daf8af95c6564168dd2867bd5
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688391"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327760"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Adobe Identity Management 구성
 

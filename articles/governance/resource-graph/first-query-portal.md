@@ -1,16 +1,16 @@
 ---
 title: '빠른 시작: 첫 번째 포털 쿼리'
 description: 이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 따릅니다.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: b01bc4ceefd1d0c645ed584648a34851d741aed1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 51d92d32ef3e879e1844581a399588293fd63b76
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108751772"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324292"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -18,7 +18,7 @@ Azure Resource Graph의 강력한 기능은 Azure Resource Graph Explorer를 통
 
 이 빠른 시작의 끝부분에서는 Azure Portal 및 Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리를 실행하고 결과를 대시보드에 고정했습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

@@ -6,19 +6,21 @@
     - name: Machine Learning Studio(클래식)
       displayName: overview
       href: studio-classic-overview.md
-- name: 빠른 시작
+    - name: Azure Machine Learning으로 마이그레이션
+      href: ../migrate-overview.md
+- name: 자습서
   items:
     - name: 첫 번째 실험 만들기
       displayName: quickstart
       href: create-experiment.md
-- name: 자습서
-  items:
-    - name: '1: 예측 실험 만들기'
-      href: tutorial-part1-credit-risk.md
-    - name: '2: 솔루션 학습 및 평가'
-      href: tutorial-part2-credit-risk-train.md
-    - name: '3: 웹 서비스 배포'
-      href: tutorial-part3-credit-risk-deploy.md
+    - name: 예측 모델 학습 및 배포
+      items:
+        - name: '1: 예측 실험 만들기'
+          href: tutorial-part1-credit-risk.md
+        - name: '2: 솔루션 학습 및 평가'
+          href: tutorial-part2-credit-risk-train.md
+        - name: '3: 웹 서비스 배포'
+          href: tutorial-part3-credit-risk-deploy.md
 - name: 샘플
   items:
     - name: 사용 가능한 데이터 세트
@@ -138,20 +140,6 @@
         - name: 갤러리 데이터
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
-    - name: Azure Machine Learning으로 마이그레이션
-      items:
-        - name: 마이그레이션 개요
-          href: migrate-overview.md
-        - name: 데이터 세트 마이그레이션
-          href: migrate-register-dataset.md
-        - name: 실험 다시 빌드
-          href: migrate-rebuild-experiment.md
-        - name: 웹 서비스 다시 빌드
-          href: migrate-rebuild-web-service.md
-        - name: 클라이언트 응용 프로그램 업데이트
-          href: migrate-rebuild-integrate-with-client-app.md
-        - name: R 스크립트 실행 모듈 다시 빌드
-          href: migrate-execute-r-script.md
 - name: 참조
   items:
     - name: 알고리즘 및 모듈 참조
@@ -164,12 +152,8 @@
       href: /rest/api/machinelearning
 - name: 리소스
   items:
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=machine-learning-studio'
     - name: 지원 받기
       href: support-aml-studio.md
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 가격 책정

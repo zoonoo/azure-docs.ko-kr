@@ -84,7 +84,7 @@ conceptualContent:
         - url: /azure/architecture/best-practices/
           itemType: reference
           text: 클라우드 모범 사례
-        - url: /azure/architecture/framework/resiliency/overview
+        - url: /azure/architecture/framework/resiliency/app-design
           itemType: reference
           text: 신뢰할 수 있는 Azure 애플리케이션 디자인
         - url: /azure/architecture/patterns/
