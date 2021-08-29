@@ -20,6 +20,8 @@
       href: multi-factor-authentication-end-user-signin.md
     - name: 도움말 보기
       href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: 오류로 표시된 코드 수신됨
+      href: multi-factor-authentication-change-sms-phone.md
 - name: 암호 재설정 도움말
   items:
     - name: 암호 재설정에 등록

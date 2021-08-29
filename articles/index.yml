@@ -10,7 +10,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 05/24/2021
+  ms.date: 08/09/2021
   featureFlags:
     - clicktale
 highlightedContent:
@@ -42,6 +42,12 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/anomaly-detector/index.yml
+    - title: Azure Applied AI Services
+      summary: 조직에서 일반적인 시나리오를 해결하는 AI를 적용하여 가치 실현 시간을 단축할 수 있도록 하는 전문 서비스
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
+      azureCategories:
+        - ai-machine-learning
+      url: ./applied-ai-services/index.yml
     - title: Azure Bot Service
       summary: 필요에 따라 규모를 조정하고 서버를 사용하지 않는 지능형 Bot 서비스
       imageSrc: 'https://static.docs.com/ui/media/product/azure/bot-service.svg'
@@ -96,60 +102,6 @@ productDirectory:
       azureCategories:
         - iot
       url: /azure/rtos/
-    - title: Bing Autosuggest
-      summary: 앱에 검색에 대한 인텔리전트 자동 제안 옵션 제공
-      imageSrc: ./media/index/API_Bing_AutoSuggest.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-autosuggest/get-suggested-search-terms.md
-    - title: Bing 사용자 지정 검색
-      summary: 원하는 결과를 제공할 수 있는 사용하기 쉽고 광고가 없는 상용급 검색 도구
-      imageSrc: ./media/index/API_Bing_Custom_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-custom-search/overview.md
-    - title: Bing Entity Search
-      summary: 웹에서 엔터티 정보를 식별하고 보강하여 환경 개선
-      imageSrc: ./media/index/API_Bing_Entity_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-entities-search/overview.md
-    - title: Bing 이미지 검색
-      summary: 이미지를 검색하여 포괄적인 결과 획득
-      imageSrc: ./media/index/API_Bing_Image_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-image-search/overview.md
-    - title: Bing 뉴스 검색
-      summary: 뉴스를 검색하여 포괄적인 결과 획득
-      imageSrc: ./media/index/API_Bing_News_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-news-search/search-the-web.md
-    - title: Bing 맞춤법 검사
-      summary: 앱의 맞춤법 오류를 감지하여 수정
-      imageSrc: ./media/index/API_Bing_Spell_Check.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-spell-check/overview.md
-    - title: Bing 비디오 검색
-      summary: 비디오를 검색하여 포괄적인 결과 획득
-      imageSrc: ./media/index/API_Bing_Video_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-video-search/overview.md
-    - title: Bing Visual Search
-      summary: 원하는 디바이스에서 멋진 이미지 애플리케이션을 빌드하는 데 도움이 되는 풍부한 인사이트 획득
-      imageSrc: ./media/index/API_Bing_Visual_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-visual-search/overview.md
-    - title: Bing 웹 검색
-      summary: 수십억 개의 웹 문서에서 향상된 검색 세부 정보 획득
-      imageSrc: ./media/index/API_Bing_Web_Search.svg
-      azureCategories:
-        - ai-machine-learning
-      url: cognitive-services/bing-web-search/overview.md
     - title: Azure Communication Services
       summary: Microsoft Teams에서 사용하는 것과 동일한 보안 플랫폼을 사용하여 다양한 통신 환경 구축
       imageSrc: ./media/index/communication-services.svg
@@ -198,13 +150,7 @@ productDirectory:
       imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/immersive-reader/index.yml
-    - title: Ink Recognizer(미리 보기)
-      summary: '필기, 도형, 잉크 문서 레이아웃 등의 디지털 잉크 콘텐츠를 인식하는 AI 서비스'
-      imageSrc: 'https://static.docs.com/ui/media/product/azure/cognitive-services.svg'
-      azureCategories:
-        - ai-machine-learning
-      url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
+      url: ./applied-ai-services/immersive-reader/index.yml
     - title: Kinect DK
       summary: 고급 AI 센서가 탑재된 개발자 키트를 사용하여 컴퓨터 비전 및 음성 모델 빌드
       imageSrc: ./media/index/kinect-viewer.svg
@@ -225,7 +171,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: genomics/index.yml
-    - title: Metrics Advisor(미리 보기)
+    - title: Metrics Advisor
       summary: 메트릭을 모니터링하고 문제를 진단하는 AI 서비스
       imageSrc: ./media/index/metrics-advisor.svg
       azureCategories:
@@ -983,7 +929,7 @@ productDirectory:
       azureCategories:
         - management-and-governance
       url: azure-resource-manager/index.yml
-    - title: Azure Resource Mover(미리 보기)
+    - title: Azure Resource Mover
       summary: Azure 지역 간에 여러 리소스를 이동하는 방법 단순화
       imageSrc: 'https://static.docs.com/ui/media/product/azure/resource-mover.svg'
       azureCategories:

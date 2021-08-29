@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 Bentley - Automatic User Provisioning으로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 08778fff-f252-45c2-95d4-cc640c288af3
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/13/2021
-ms.author: Zhchia
-ms.openlocfilehash: 99857aab921d1c09de09db04dededef187094ae5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.author: thwimmer
+ms.openlocfilehash: 401baafba0ae430d2cd33e7006302bf90afc9778
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740018"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327779"
 ---
 # <a name="tutorial-configure-bentley---automatic-user-provisioning-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Bentley - Automatic User Provisioning 구성
 
@@ -51,7 +51,7 @@ ms.locfileid: "108740018"
 
 테넌트 URL과 비밀 토큰은 Bentley User Provisioning [지원](https://communities.bentley.com/communities/other_communities/licensing_cloud_and_web_services/w/wiki/52836/microsoft-azure-ad-automatic-user-provisioning-configuration)팀에 문의하세요. 이러한 값은 Azure Portal에서 Bentley 애플리케이션의 프로비저닝 탭에 입력됩니다.
 
-## <a name="step-3-add-bentley---automatic-user-provisioning-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Bentley - Automatic User Provisioning 추가
+## <a name="step-3-add-bentley---automatic-user-provisioning-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 Bentley - Automatic User Provisioning 추가
 
 Azure AD 애플리케이션 갤러리에서 Bentley - Automatic User Provisioning을 추가하여 Bentley - Automatic User Provisioning으로의 프로비저닝 관리를 시작합니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -100,7 +100,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서, Azure AD에서 Bentley - Automatic User Provisioning으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Bentley - Automatic User Provisioning의 사용자 계정의 일치 여부를 확인하는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 Bentley - Automatic User Provisioning API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|필터링에 지원됨|
+   |attribute|Type|필터링 지원됨|
    |---|---|---|
    |userName|String|&check;|
    |title|String|
@@ -121,7 +121,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 11. **특성 매핑** 섹션에서, Azure AD에서 Bentley - Automatic User Provisioning으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Bentley - Automatic User Provisioning의 그룹의 일치 여부를 확인하는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|필터링에 지원됨|
+      |attribute|Type|필터링 지원됨|
       |---|---|---|
       |displayName|String|&check;|
       |externalId|String|

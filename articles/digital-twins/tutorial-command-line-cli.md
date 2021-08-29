@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure CLI를 사용하여 Azure Digital Twins 시나리오를 빌드하는 자습서입니다.
 author: baanders
 ms.author: baanders
-ms.date: 2/26/2021
+ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 93dbdb8384a37e2f104f1ab99caf1ab6d8464c06
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 26e90482ad03406bbf586c7c9a8f2fdcc31cad7c
+ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461921"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122254027"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Digital Twins 그래프 만들기
 

@@ -6,157 +6,152 @@ metadata:
   title: Microsoft Azure 컨테이너 서비스 설명서 | Microsoft Docs
   description: Azure 컨테이너 서비스를 사용하여 클라우드 기반 컨테이너 애플리케이션을 관리 및 개발하는 방법을 알아봅니다.
   ms.topic: hub-page
-  ms.openlocfilehash: a1ed2769438208b422907dcb8758bd6f3c130986
-  ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/30/2020
-  ms.locfileid: "96349234"
+  ms.service: azure
 highlightedContent:
   items:
-  - itemType: whats-new
-    title: Azure 컨테이너의 새로운 기능
-    url: https://azure.microsoft.com/updates/?category=containers
-  - itemType: concept
-    title: 애플리케이션에 대한 마이크로서비스 접근 방식
-    url: ../service-fabric/service-fabric-overview-microservices.md
-  - itemType: concept
-    title: Kubernetes 이해
-    url: ../aks/concepts-clusters-workloads.md
+    - itemType: whats-new
+      title: Azure 컨테이너의 새로운 기능
+      url: 'https://azure.microsoft.com/updates/?category=containers'
+    - itemType: concept
+      title: 애플리케이션에 대한 마이크로서비스 접근 방식
+      url: ../service-fabric/service-fabric-overview-microservices.md
+    - itemType: concept
+      title: Kubernetes 이해
+      url: ../aks/concepts-clusters-workloads.md
 conceptualContent:
   items:
-  - title: Azure에서 Kubernetes 배포
-    links:
-    - url: ../aks/intro-kubernetes.md
-      itemType: overview
-      text: Azure Kubernetes Service란?
-    - url: ../aks/tutorial-kubernetes-prepare-app.md
-      itemType: tutorial
-      text: AKS를 위한 애플리케이션 준비
-    - url: ../aks/kubernetes-walkthrough.md
-      itemType: tutorial
-      text: AKS 클러스터 만들기(CLI)
-    footerLink:
-      url: ../aks/index.yml
-      text: 자세히 보기
-  - title: AKS 애플리케이션 테스트 및 개발
-    links:
-    - url: /visualstudio/containers/overview-local-process-kubernetes
-      itemType: concept
-      text: Kubernetes를 사용하는 로컬 프로세스의 작동 방식
-    - url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
-      itemType: how-to-guide
-      text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용
-    - url: /visualstudio/containers/bridge-to-kubernetes
-      itemType: how-to-guide
-      text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용
-  - title: 웹 및 모바일용 클라우드 앱 만들기
-    links:
-    - url: ../app-service/overview.md
-      itemType: overview
-      text: App Service란?
-    - url: ../app-service/app-service-web-tutorial-custom-domain.md
-      itemType: get-started
-      text: 사용자 지정 도메인을 앱에 매핑
-    - url: ../app-service/configure-ssl-bindings.md
-      itemType: tutorial
-      text: SSL 바인딩으로 사용자 지정 도메인 보호
-    - url: ../app-service/quickstart-custom-container.md
-      itemType: get-started
-      text: 사용자 지정 Windows 컨테이너 실행
-    - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
-      itemType: quickstart
-      text: 사용자 지정 Linux 컨테이너 실행
-    - url: ../app-service/quickstart-multi-container.md
-      itemType: quickstart
-      text: Linux 다중 컨테이너 앱 만들기
-    footerLink:
-      url: ../app-service/index.yml
-      text: 자세히 보기
-  - title: Azure에서 컨테이너 실행
-    links:
-    - url: ../container-instances/container-instances-overview.md
-      itemType: overview
-      text: Container Instances 개요
-    - url: /learn/modules/run-docker-with-azure-container-instances/
-      itemType: learn
-      text: Azure Container Instances와 함께 Docker를 사용하여 컨테이너화된 앱 실행
-    - url: ../container-instances/container-instances-using-azure-container-registry.md
-      itemType: how-to-guide
-      text: Azure Container Registry에서 이미지 배포
-    - url: ../container-registry/container-registry-quickstart-task-cli.md
-      itemType: get-started
-      text: Azure CLI를 사용하여 이미지 빌드, 푸시 및 실행
-    footerLink:
-      url: ../container-instances/index.yml
-      text: 자세히 보기
-  - title: 작업 예약 및 컴퓨팅 관리
-    links:
-    - url: ../batch/batch-technical-overview.md
-      itemType: overview
-      text: Batch란?
-    - url: ../batch/quick-create-cli.md
-      itemType: get-started
-      text: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
-    - url: ../batch/tutorial-parallel-dotnet.md
-      itemType: tutorial
-      text: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
-    footerLink:
-      url: ../batch/index.yml
-      text: 자세히 보기
-  - title: 마이크로서비스 개발 및 컨테이너 오케스트레이션
-    links:
-    - url: ../service-fabric/service-fabric-overview.md
-      itemType: overview
-      text: Azure Service Fabric이란?
-    - url: ../service-fabric/service-fabric-quickstart-dotnet.md
-      itemType: quickstart
-      text: Service Fabric에 .NET Reliable Services 애플리케이션 배포
-    - url: ../service-fabric/service-fabric-cluster-creation-for-windows-server.md
-      itemType: how-to-guide
-      text: Windows Server에서 실행되는 독립 실행형 클러스터 만들기
-    footerLink:
-      url: ../service-fabric/index.yml
-      text: 자세히 보기
-  - title: 컨테이너 이미지 저장 및 관리
-    links:
-    - url: ../container-registry/container-registry-intro.md
-      itemType: overview
-      text: Azure Container Registry란?
-    - url: ../container-registry/container-registry-get-started-azure-cli.md
-      itemType: get-started
-      text: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
-    - url: ../container-registry/container-registry-quickstart-task-cli.md
-      itemType: get-started
-      text: Azure CLI를 사용하여 이미지 빌드, 푸시 및 실행
-    footerLink:
-      url: ../container-registry/index.yml
-      text: 자세히 보기
-  - title: 관리형 OpenShift 서비스
-    links:
-    - url: ../openshift/intro-openshift.md
-      itemType: overview
-      text: Azure Red Hat OpenShift란?
-    - url: ../openshift/howto-setup-environment.md
-      itemType: how-to-guide
-      text: Azure Red Hat OpenShift 개발 환경 설정
-    - url: ../openshift/tutorial-create-cluster.md
-      itemType: tutorial
-      text: Azure Red Hat OpenShift 클러스터 만들기
-    footerLink:
-      url: ../openshift/index.yml
-      text: 자세히 보기
-  - title: 서버리스 애플리케이션 개발
-    links:
-    - url: ../azure-functions/functions-overview.md
-      itemType: overview
-      text: Azure Functions 소개
-    - url: ../azure-functions/create-first-function-vs-code-csharp.md
-      itemType: quickstart
-      text: 첫 번째 기능 만들기
-    - url: ../azure-functions/functions-triggers-bindings.md
-      itemType: overview
-      text: 다른 Azure 서비스와 통합
-    footerLink:
-      url: ../azure-functions/index.yml
-      text: 자세히 보기
+    - title: Azure에서 Kubernetes 배포
+      links:
+        - url: ../aks/intro-kubernetes.md
+          itemType: overview
+          text: Azure Kubernetes Service란?
+        - url: ../aks/tutorial-kubernetes-prepare-app.md
+          itemType: tutorial
+          text: AKS를 위한 애플리케이션 준비
+        - url: ../aks/kubernetes-walkthrough.md
+          itemType: tutorial
+          text: AKS 클러스터 만들기(CLI)
+      footerLink:
+        url: ../aks/index.yml
+        text: 자세히 보기
+    - title: AKS 애플리케이션 테스트 및 개발
+      links:
+        - url: /visualstudio/containers/overview-local-process-kubernetes
+          itemType: concept
+          text: Kubernetes를 사용하는 로컬 프로세스의 작동 방식
+        - url: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+          itemType: how-to-guide
+          text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용
+        - url: /visualstudio/containers/bridge-to-kubernetes
+          itemType: how-to-guide
+          text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용
+    - title: 웹 및 모바일용 클라우드 앱 만들기
+      links:
+        - url: ../app-service/overview.md
+          itemType: overview
+          text: App Service란?
+        - url: ../app-service/app-service-web-tutorial-custom-domain.md
+          itemType: get-started
+          text: 사용자 지정 도메인을 앱에 매핑
+        - url: ../app-service/configure-ssl-bindings.md
+          itemType: tutorial
+          text: SSL 바인딩으로 사용자 지정 도메인 보호
+        - url: ../app-service/quickstart-custom-container.md
+          itemType: get-started
+          text: 사용자 지정 Windows 컨테이너 실행
+        - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
+          itemType: quickstart
+          text: 사용자 지정 Linux 컨테이너 실행
+        - url: ../app-service/quickstart-multi-container.md
+          itemType: quickstart
+          text: Linux 다중 컨테이너 앱 만들기
+      footerLink:
+        url: ../app-service/index.yml
+        text: 자세히 보기
+    - title: Azure에서 컨테이너 실행
+      links:
+        - url: ../container-instances/container-instances-overview.md
+          itemType: overview
+          text: Container Instances 개요
+        - url: /learn/modules/run-docker-with-azure-container-instances/
+          itemType: learn
+          text: Azure Container Instances와 함께 Docker를 사용하여 컨테이너화된 앱 실행
+        - url: ../container-instances/container-instances-using-azure-container-registry.md
+          itemType: how-to-guide
+          text: Azure Container Registry에서 이미지 배포
+        - url: ../container-registry/container-registry-quickstart-task-cli.md
+          itemType: get-started
+          text: 'Azure CLI를 사용하여 이미지 빌드, 푸시 및 실행'
+      footerLink:
+        url: ../container-instances/index.yml
+        text: 자세히 보기
+    - title: 작업 예약 및 컴퓨팅 관리
+      links:
+        - url: ../batch/batch-technical-overview.md
+          itemType: overview
+          text: Batch란?
+        - url: ../batch/quick-create-cli.md
+          itemType: get-started
+          text: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
+        - url: ../batch/tutorial-parallel-dotnet.md
+          itemType: tutorial
+          text: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
+      footerLink:
+        url: ../batch/index.yml
+        text: 자세히 보기
+    - title: 마이크로서비스 개발 및 컨테이너 오케스트레이션
+      links:
+        - url: ../service-fabric/service-fabric-overview.md
+          itemType: overview
+          text: Azure Service Fabric이란?
+        - url: ../service-fabric/service-fabric-quickstart-dotnet.md
+          itemType: quickstart
+          text: Service Fabric에 .NET Reliable Services 애플리케이션 배포
+        - url: ../service-fabric/service-fabric-cluster-creation-for-windows-server.md
+          itemType: how-to-guide
+          text: Windows Server에서 실행되는 독립 실행형 클러스터 만들기
+      footerLink:
+        url: ../service-fabric/index.yml
+        text: 자세히 보기
+    - title: 컨테이너 이미지 저장 및 관리
+      links:
+        - url: ../container-registry/container-registry-intro.md
+          itemType: overview
+          text: Azure Container Registry란?
+        - url: ../container-registry/container-registry-get-started-azure-cli.md
+          itemType: get-started
+          text: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
+        - url: ../container-registry/container-registry-quickstart-task-cli.md
+          itemType: get-started
+          text: 'Azure CLI를 사용하여 이미지 빌드, 푸시 및 실행'
+      footerLink:
+        url: ../container-registry/index.yml
+        text: 자세히 보기
+    - title: 관리형 OpenShift 서비스
+      links:
+        - url: ../openshift/intro-openshift.md
+          itemType: overview
+          text: Azure Red Hat OpenShift란?
+        - url: ../openshift/howto-setup-environment.md
+          itemType: how-to-guide
+          text: Azure Red Hat OpenShift 개발 환경 설정
+        - url: ../openshift/tutorial-create-cluster.md
+          itemType: tutorial
+          text: Azure Red Hat OpenShift 클러스터 만들기
+      footerLink:
+        url: ../openshift/index.yml
+        text: 자세히 보기
+    - title: 서버리스 애플리케이션 개발
+      links:
+        - url: ../azure-functions/functions-overview.md
+          itemType: overview
+          text: Azure Functions 소개
+        - url: ../azure-functions/create-first-function-vs-code-csharp.md
+          itemType: quickstart
+          text: 첫 번째 기능 만들기
+        - url: ../azure-functions/functions-triggers-bindings.md
+          itemType: overview
+          text: 다른 Azure 서비스와 통합
+      footerLink:
+        url: ../azure-functions/index.yml
+        text: 자세히 보기
