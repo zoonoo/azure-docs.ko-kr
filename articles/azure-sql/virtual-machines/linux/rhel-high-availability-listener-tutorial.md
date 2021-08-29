@@ -2,17 +2,18 @@
 title: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성 - Linux 가상 머신 | Microsoft Docs
 description: Azure에서 가용성 그룹 수신기를 RHEL 가상 머신의 SQL Server에 설정하는 방법을 알아봅니다.
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 5f0b300be2f1cec4ee456065455832a2dc3598be
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 935b3ea84a1e8927a80e1cf3e0ce287fa90620ba
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449508"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745770"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

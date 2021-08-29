@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb68a15bb64640fd8aa18d2ee01fd4a03d809125
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: dfc82cfec8e2c356b0d2fcc3806e21a3bd01a299
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565273"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862513"
 ---
 # <a name="connection-strings-for-synapse-sql"></a>Synapse SQL에 대한 연결 문자열
 
@@ -55,4 +55,4 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio 및 기타 애플리케이션으로 분석을 쿼리하려면 [Visual Studio를 사용하여 쿼리](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+Visual Studio 및 기타 애플리케이션으로 분석을 쿼리하려면 [Visual Studio를 사용하여 쿼리](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?context=/azure/synapse-analytics/context/context)를 참조하세요.

@@ -5,12 +5,12 @@ ms.custom: devx-track-java
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/29/2019
-ms.openlocfilehash: 178767847757660163515ec286eba48e1050f506
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 80b30f295254e9d83ad97542381ec7b47e0f094a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821227"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "122643552"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Java 샘플
 
@@ -40,6 +40,6 @@ ms.locfileid: "99821227"
 
 [hdinsight-java-sdk-samples](https://github.com/Azure-Samples/hdinsight-java-sdk-samples) GitHub 리포지토리를 복제하여 이러한 Java용 샘플을 가져올 수 있습니다.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
 이 추가 SDK 기능에 대한 코드 조각은 [Java용 HDInsight SDK 참조 설명서](/java/api/overview/azure/hdinsight)에서 찾을 수 있습니다.

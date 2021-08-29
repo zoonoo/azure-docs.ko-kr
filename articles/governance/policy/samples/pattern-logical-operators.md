@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 논리 연산자
 description: 이 Azure Policy 패턴에서는 정책 정의에서 논리 연산자를 사용하는 방법에 대한 예를 제공합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: 3daf5e5873566b1335178d50a4589ec7a6e1971c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 433087bbd9d96d50e5e0cfa477b2ba7f335b8f96
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752276"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324121"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Azure Policy 패턴: 논리 연산자
 

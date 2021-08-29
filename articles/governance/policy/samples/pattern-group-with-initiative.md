@@ -1,14 +1,14 @@
 ---
 title: 패턴 이니셔티브가 포함된 그룹 정책 정의
 description: 이 Azure Policy 패턴에서는 정책 정의를 이니셔티브로 그룹화하는 방법에 대한 예를 제공합니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: sample
-ms.openlocfilehash: a2cc89954c34f22d5dba0ecce710a7db152ec665
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0311da9da70186cf8a244b9bcb8b4b68d3e6ccdc
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108752348"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324176"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Azure Policy 패턴: 그룹 정책 정의
 

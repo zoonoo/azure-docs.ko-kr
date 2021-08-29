@@ -4,20 +4,20 @@ summary: Personalizer를 사용하여 애플리케이션이 사용자에게 보�
 metadata:
   ms.topic: landing-page
   ms.date: 06/11/2020
-  ms.author: nitinme
-  author: nitinme
+  ms.author: jeffme
+  author: jeffmend
   ms.service: cognitive-services
   ms.subservice: personalizer
   services: cognitive-services
   title: Personalizer 설명서
   titleSuffix: Azure Cognitive Services
   description: Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
-  ms.openlocfilehash: 51d86faac37ad4131adad395d0fb52a23870e2ea
-  ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+  ms.openlocfilehash: 14e66639606356517d8ec1400c681337a4023c69
+  ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/07/2021
-  ms.locfileid: "102433712"
+  ms.lasthandoff: 08/25/2021
+  ms.locfileid: "122831583"
 landingContent:
 - title: Personalizer 정보
   linkLists:

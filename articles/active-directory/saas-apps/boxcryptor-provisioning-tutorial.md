@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 Boxcryptor로 자동으로 프로비저닝 및 프로비저닝 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 656de6d6-399e-4346-a07e-0e5fefb0b4ee
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/02/2021
-ms.author: Zhchia
-ms.openlocfilehash: 013308ab5d31bf42498b85c5a58c4973ccd4cbe4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: 916d4f10e554d671b77112de134f5aa7a0043d05
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142012"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327716"
 ---
 # <a name="tutorial-configure-boxcryptor-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Boxcryptor 구성
 
@@ -100,7 +100,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Boxcryptor로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Boxcryptor의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 Boxcryptor API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|필터링에 지원됨|
+   |attribute|Type|필터링 지원됨|
    |---|---|---|
    |userName|String|&check;|
    |preferredLanguage|String|
@@ -113,7 +113,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 11. Azure AD에서 Boxcryptor로 동기화되는 그룹 특성을 **특성 매핑** 섹션에서 검토합니다. **일치** 속성으로 선택된 특성은 업데이트 작업 시 Boxcryptor의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|필터링에 지원됨|
+      |attribute|Type|필터링 지원됨|
       |---|---|---|
       |displayName|String|&check;|
       |externalId|String|

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: bd2333d89e4d1789b3464606b49f624609ef67d5
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 489ddfb7a4c7344215950370d2e87f37fd24c14a
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518762"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745325"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 Azure Data Science Virtual Machine이란?
 
@@ -27,7 +27,7 @@ DSVM은 다음에서 사용할 수 있습니다.
 
 ## <a name="comparison-with-azure-machine-learning"></a>Azure Machine Learning과 비교
 
-DSVM은 데이터 과학용으로 사용자 지정된 VM 이미지이지만 [AzureML](../overview-what-is-azure-ml.md)(Azure Machine Learning)은 다음을 포함하는 엔드투엔드 플랫폼입니다.
+DSVM은 데이터 과학용으로 사용자 지정된 VM 이미지이지만 [AzureML](../overview-what-is-azure-machine-learning.md)(Azure Machine Learning)은 다음을 포함하는 엔드투엔드 플랫폼입니다.
 
 + 완전 관리형 컴퓨팅
   + 컴퓨팅 인스턴스

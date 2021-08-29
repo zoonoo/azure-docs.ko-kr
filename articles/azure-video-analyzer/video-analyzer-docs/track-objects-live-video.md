@@ -3,12 +3,12 @@ title: Azure Video Analyzer를 사용하여 라이브 비디오의 개체 추적
 description: 이 빠른 시작에서는 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드에 있는 개체를 추적하는 방법을 보여줍니다. 컴퓨터 비전 모델을 적용하여 라이브 비디오 피드의 프레임에 있는 개체를 감지하는 방법을 알아봅니다. 그런 다음, 개체 추적기 노드를 사용하여 다른 프레임에서 해당 개체를 추적할 수 있습니다.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.openlocfilehash: 211b51660be74d2b2b3b024ead72c93b3a0d8449
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7ea51dbb59cba95825afb059e6a1845b4bbdcb95
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603914"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745701"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>빠른 시작: 라이브 비디오의 개체 추적
 
@@ -105,7 +105,7 @@ Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동합니�
    }
 ```
 
-여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. 라이브 비디오의 프레임 속도가 초당 30프레임이면 매 초마다 추론을 위해 두 개 이상의 프레임을 HTTP 서버로 보내야 합니다. AI 모델에는 처리를 위한 최대 FPS가 있으며, 이는 `maximumSamplesPerSecond`에 설정해야 하는 가장 높은 값입니다.
+여기서는 확장 노드가 추론 결과의 포함 여부에 관계 없이 모든 프레임을 다운스트림 개체 추적기 노드에 전달해야 하므로 `skipSamplesWithoutAnnotation`이 `false`로 설정되었습니다. 개체 추적기는 약 15프레임 넘게 개체를 추적할 수 있습니다. AI 모델에는 처리를 위한 최대 FPS가 있으며, 이는 `maximumSamplesPerSecond`에 설정해야 하는 가장 높은 값입니다.
     
 ## <a name="run-the-sample-program"></a>샘플 프로그램 실행
 

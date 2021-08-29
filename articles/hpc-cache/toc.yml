@@ -67,21 +67,31 @@ items:
         href: /powershell/module/Az.HPCCache
   - name: 리소스
     items:
-      - name: 지원 티켓 열기
+      - name: 기술 지원 서비스에 문의하십시오.
         href: hpc-cache-support-ticket.md
+      - name: 문제 해결
+        items:
+          - name: NFS 스토리지 대상 생성 문제 해결
+            href: troubleshoot-nas.md
+          - name: Blob 스토리지 계정 방화벽 설정 해결
+            href: hpc-cache-blob-firewall-fix.md
+          - name: 지역 가동 중단에서 복구
+            href: hpc-region-recovery.md
+      - name: 스토리지 옵션
+        items:
+          - name: Azure HPC Cache에서 NFS 탑재 Blob Storage 사용
+            href: nfs-blob-considerations.md
+          - name: Azure HPC Cache에서 Azure NetApp Files 사용
+            href: hpc-cache-netapp.md
       - name: Azure HPC Cache용 Azure CLI 설치
         href: az-cli-prerequisites.md
-      - name: Blob 스토리지 계정 방화벽 설정 해결
-        href: hpc-cache-blob-firewall-fix.md
-      - name: NFS 스토리지 대상 생성 문제 해결
-        href: troubleshoot-nas.md
-      - name: Azure HPC Cache에서 NFS 탑재 Blob Storage 사용
-        href: nfs-blob-considerations.md
-      - name: 지역 가동 중단에서 복구
-        href: hpc-region-recovery.md
       - name: 고객 관리 암호화 키 사용
         href: customer-keys.md
-      - name: Azure HPC Cache에서 Azure NetApp Files 사용
-        href: hpc-cache-netapp.md
+      - name: 제품 개요
+        href: 'https://azure.microsoft.com/services/hpc-cache/'
+      - name: 가격 책정 및 구매 옵션
+        href: 'https://azure.microsoft.com/pricing/details/hpc-cache/'
+      - name: 제품 FAQ
+        href: 'https://azure.microsoft.com/services/hpc-cache/#faq'
       - name: 동영상
         href: 'https://azure.microsoft.com/resources/videos/index/?service=hpc-cache'

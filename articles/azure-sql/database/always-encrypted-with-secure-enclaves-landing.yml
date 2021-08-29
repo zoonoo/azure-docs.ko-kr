@@ -7,98 +7,108 @@ metadata:
   ms.service: sql-database
   ms.subservice: security
   ms.tgt_pltfrm: na
-  ms.devlang: null
+  ms.devlang: 
   ms.topic: landing-page
   author: VanMSFT
   ms.author: vanto
-  ms.reviewer: null
+  ms.reviewer: 
   ms.date: 07/14/2021
+  ms.openlocfilehash: 602bee5145e4ddfb8bc8a1a25aa4c4d58aeddc11
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121727123"
 landingContent:
-  - title: 개요
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: 보안 enclave를 사용한 Always Encrypted란?
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves
-          - text: 보안 enclave를 사용한 Always Encrypted 구성 및 사용
-            url: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
-  - title: Azure SQL Database에서 설정
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Azure SQL Database의 Intel SGX Enclave 및 증명 계획
-            url: always-encrypted-enclaves-plan.md
-          - text: Azure SQL Database에 Intel SGX 사용
-            url: always-encrypted-enclaves-enable-sgx.md
-          - text: Azure Attestation을 사용하여 Always Encrypted에 대한 증명 구성
-            url: always-encrypted-enclaves-configure-attestation.md
-  - title: Azure VM의 SQL Server에 설정
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 호스트 보호자 서비스 증명 계획
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-plan
-          - text: SQL Server용 호스트 보호 서비스 배포
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-deploy
-          - text: 호스트 보호 서비스에 컴퓨터 등록
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-register
-          - text: SQL 서버의 보안 Enclave 구성
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-enclave-type
-  - title: 자습서
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: SQL 서버의 보안 Enclave를 사용한 Always Encrypted 시작
-            url: /sql/relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves
-          - text: Azure SQL Database의 보안 enclave를 사용한 Always Encrypted 시작
-            url: always-encrypted-enclaves-getting-started.md
-          - text: 임의 암호화를 사용하는 enclave 사용 열에 인덱스 만들기 및 사용
-            url: /sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption
-          - text: 보안 Enclave를 사용한 Always Encrypted로 .NET 애플리케이션 개발
-            url: /sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps
-          - text: 보안 enclave를 사용한 Always Encrypted를 이용하여 .NET Framework 애플리케이션 개발
-            url: /sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps
-  - title: 키 관리
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 보안 enclave를 사용한 Always Encrypted용 키 관리
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys
-          - text: Enclave 사용 키 프로비전
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-provision-keys
-          - text: Enclave 사용 키 회전
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-rotate-keys
-  - title: 열 구성
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 보안 Enclave를 사용한 Always Encrypted를 사용하여 바로 열 암호화 구성
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption
-          - text: Transact-SQL을 사용하여 내부 열 암호화 구성
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption-tsql
-          - text: 기존 암호화된 열에 대해 보안 enclave를 사용한 Always Encrypted 사용
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-enable-for-encrypted-columns
-  - title: 동영상
-    linkLists:
-      - linkListType: video
-        links:
-          - text: Mark Russinovich를 사용한 Azure 데이터 센터 아키텍처 내부
-            url: 'https://youtu.be/69PrhWQorEM?t=4523'
-          - text: 보안 enclave 섹션을 포함하는 웹 세미나
-            url: 'https://info.microsoft.com/ww-ondemand-azure-webinar-series-four-ways-to-take-your-data-security-to-the-next-level.html'
-  - title: 쿼리 열
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 보안 Enclave를 사용하여 Transact-SQL문 실행
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
-          - text: 보안 Enclave를 사용한 Always Encrypted에 대한 일반적인 문제 해결
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
-          - text: 보안 Enclave를 사용한 Always Encrypted를 이용하여 열에 인덱스 만들기 및 사용
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes
-  - title: 애플리케이션 개발
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: 보안 enclave를 사용한 Always Encrypted를 이용하여 애플리케이션 개발
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-client-development
+- title: 개요
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 보안 enclave를 사용한 Always Encrypted란?
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves
+    - text: 보안 enclave를 사용한 Always Encrypted 구성 및 사용
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+- title: Azure SQL Database에서 설정
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure SQL Database의 Intel SGX Enclave 및 증명 계획
+      url: always-encrypted-enclaves-plan.md
+    - text: Azure SQL Database에 Intel SGX 사용
+      url: always-encrypted-enclaves-enable-sgx.md
+    - text: Azure Attestation을 사용하여 Always Encrypted에 대한 증명 구성
+      url: always-encrypted-enclaves-configure-attestation.md
+- title: Azure VM의 SQL Server에 설정
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 호스트 보호자 서비스 증명 계획
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-plan
+    - text: SQL Server용 호스트 보호 서비스 배포
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-deploy
+    - text: 호스트 보호 서비스에 컴퓨터 등록
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-host-guardian-service-register
+    - text: SQL 서버의 보안 Enclave 구성
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-enclave-type
+- title: 샘플 및 자습서
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Contoso HR 웹앱 샘플
+      url: https://github.com/microsoft/sql-server-samples/tree/master/samples/features/security/always-encrypted-with-secure-enclaves
+  - linkListType: tutorial
+    links:
+    - text: SQL 서버의 보안 Enclave를 사용한 Always Encrypted 시작
+      url: /sql/relational-databases/security/tutorial-getting-started-with-always-encrypted-enclaves
+    - text: Azure SQL Database의 보안 enclave를 사용한 Always Encrypted 시작
+      url: always-encrypted-enclaves-getting-started.md
+    - text: 임의 암호화를 사용하는 enclave 사용 열에 인덱스 만들기 및 사용
+      url: /sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption
+    - text: 보안 Enclave를 사용한 Always Encrypted로 .NET 애플리케이션 개발
+      url: /sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps
+    - text: 보안 enclave를 사용한 Always Encrypted를 이용하여 .NET Framework 애플리케이션 개발
+      url: /sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps
+- title: 키 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 보안 enclave를 사용한 Always Encrypted용 키 관리
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys
+    - text: Enclave 사용 키 프로비전
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-provision-keys
+    - text: Enclave 사용 키 회전
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-rotate-keys
+- title: 열 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 보안 Enclave를 사용한 Always Encrypted를 사용하여 바로 열 암호화 구성
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption
+    - text: Transact-SQL을 사용하여 내부 열 암호화 구성
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption-tsql
+    - text: 기존 암호화된 열에 대해 보안 enclave를 사용한 Always Encrypted 사용
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-enable-for-encrypted-columns
+- title: 동영상
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Mark Russinovich를 사용한 Azure 데이터 센터 아키텍처 내부
+      url: https://youtu.be/69PrhWQorEM?t=4523
+    - text: 보안 enclave 섹션을 포함하는 웹 세미나
+      url: https://info.microsoft.com/ww-ondemand-azure-webinar-series-four-ways-to-take-your-data-security-to-the-next-level.html
+- title: 쿼리 열
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 보안 Enclave를 사용하여 Transact-SQL문 실행
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
+    - text: 보안 Enclave를 사용한 Always Encrypted에 대한 일반적인 문제 해결
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
+    - text: 보안 Enclave를 사용한 Always Encrypted를 이용하여 열에 인덱스 만들기 및 사용
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes
+- title: 애플리케이션 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 보안 enclave를 사용한 Always Encrypted를 이용하여 애플리케이션 개발
+      url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-client-development

@@ -144,16 +144,16 @@
           href: expressroute-howto-add-ipv6-powershell.md
     - name: 모니터링
       items:
-        - name: 네트워크 인사이트
-          href: expressroute-network-insights.md
-        - name: 'ExpressRoute 모니터링, 메트릭 및 경고'
-          href: expressroute-monitoring-metrics-alerts.md
         - name: ExpressRoute 모니터링
           href: monitor-expressroute.md
+        - name: 네트워크 인사이트
+          href: expressroute-network-insights.md
+        - name: ExpressRoute에 대한 연결 모니터링 구성
+          href: how-to-configure-connection-monitor.md
+        - name: 'ExpressRoute 모니터링, 메트릭 및 경고'
+          href: expressroute-monitoring-metrics-alerts.md
         - name: 유지 관리 경고 보기 및 구성
           href: maintenance-alerts.md
-        - name: ExpressRoute에 대한 네트워크 성능 모니터 구성
-          href: how-to-npm.md
         - name: 보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
           href: how-to-custom-route-alert.md
     - name: 피어링 관리
@@ -296,3 +296,5 @@
           href: expressroute-howto-add-gateway-classic.md
         - name: 공용 피어링 생성 및 수정
           href: about-public-peering.md
+        - name: ExpressRoute에 대한 네트워크 성능 모니터 구성(사용되지 않음)
+          href: how-to-npm.md
