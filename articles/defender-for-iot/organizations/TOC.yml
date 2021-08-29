@@ -175,8 +175,6 @@
       displayName: health
     - name: 파트너와 통합
       items:
-        - name: Cisco ISE pxGrid 통합
-          href: integration-cisco-ise-pxgrid.md
         - name: Forescout 통합
           href: integration-forescout.md
         - name: Forescout 통합
