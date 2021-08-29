@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 05/04/2021
 ms.author: jeffme
-ms.openlocfilehash: b4ec1ea076994622e4e687c3f6f4a4f3826ad385
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: fadfffadd0d7c2e642825fa8134906e6c3697014
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220454"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121745931"
 ---
 # <a name="what-are-azure-applied-ai-services"></a>Azure Applied AI Services란 무엇인가요?
 
@@ -45,7 +45,7 @@ Form Recognizer는 사용자 지정 문서 처리 모델, 송장, 영수증, ID 
 
 AI를 사용하여 독해력과 성취도를 높이세요. Azure 몰입형 리더는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 몰입형 리더 클라이언트 라이브러리를 사용하면 Microsoft Word 및 Microsoft OneNote에 사용된 것과 동일한 기술을 활용하여 웹 애플리케이션을 개선할 수 있습니다. Azure 몰입형 리더는 Azure Cognitive Services의 Translation 및 Text to Speech를 사용하여 빌드됩니다.
 
-[Azure 몰입형 판독기에 대한 자세한 정보](../cognitive-services/immersive-reader/index.yml)
+[Azure 몰입형 판독기에 대한 자세한 정보](./immersive-reader/index.yml)
 
 ## <a name="azure-bot-service"></a>Azure Bot Service
 

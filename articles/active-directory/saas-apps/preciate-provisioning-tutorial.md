@@ -2,25 +2,22 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Preciate 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Preciate로 자동 프로비전 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: fa640971-87e7-49f2-933b-bc7c95fe51e2
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/09/2020
-ms.author: Zhchia
-ms.openlocfilehash: ab6b17d2db2fd45578f74da9750d3f50dba2636f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: fae7b82a218f6f6e6480d5cdb29126e60f66a6a7
+ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645657"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122207702"
 ---
 # <a name="tutorial-configure-preciate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Preciate 구성
 

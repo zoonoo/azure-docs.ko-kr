@@ -2,7 +2,6 @@
 title: 자습서 - Azure IoT Hub에 대한 X.509 공개 키 인증서 이해 | Microsoft Docs
 description: 자습서 - Azure IoT Hub에 대한 X.509 공개 키 인증서 이해
 author: v-gpettibone
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 0acb337af36bdc62504ad7b32de1b31871c1a795
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f0dc843460c1d48ae74e6d417b771d478dd097b8
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141724"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121724379"
 ---
 # <a name="tutorial-understanding-x509-public-key-certificates"></a>자습서: X.509 공개 키 인증서 이해
 

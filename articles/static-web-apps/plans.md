@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/14/2021
 ms.author: cshoe
-ms.openlocfilehash: 2fcb9805b752273cb5320114342108ed1f844a5b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 489f714c9900c0b759a5ecf7bc9a5ffc12cae884
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104890"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121746216"
 ---
 # <a name="azure-static-web-apps-hosting-plans"></a>Azure Static Web Apps 호스팅 계획
 
@@ -32,6 +32,7 @@ Azure Static Web Apps는 체험 및 표준의 두 가지 계획을 통해 제공
 | 사용자 지정 도메인 | 앱당 2개 | 앱당 5개 |
 | Azure Functions를 통한 API | 관리 | 관리 또는<br>[자체 Functions 앱 가져오기](functions-bring-your-own.md) |
 | 인증 공급자 통합 | [사전 구성](authentication-authorization.md)<br>(서비스 정의) | [사용자 지정 등록](authentication-custom.md) |
+| 프라이빗 엔드포인트 | - | ✔ |
 | [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/app-service-static/v1_0/) | 없음  | ✔ |
 
 ## <a name="selecting-a-plan"></a>계획 선택

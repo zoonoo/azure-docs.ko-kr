@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 Splashtop으로 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 8d8c3745-aaa9-4dbd-9fbf-92da4ada2a9e
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/19/2021
-ms.author: Zhchia
-ms.openlocfilehash: af76b051350c896d5de3d2827de1f51ef3191f1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: thwimmer
+ms.openlocfilehash: 9f07310b7dd0fe92c7053e1190b67527ac6525b8
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101652662"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327862"
 ---
 # <a name="tutorial-configure-splashtop-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Splashtop 구성
 
@@ -102,7 +102,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Splashtop으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Splashtop의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 Splashtop API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|필터링에 지원됨|
+   |attribute|Type|필터링 지원됨|
    |---|---|---|
    |userName|String|&check;|
    |활성|부울|
@@ -117,7 +117,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Splashtop으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Splashtop의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|필터링에 지원됨|
+      |attribute|Type|필터링 지원됨|
       |---|---|---|
       |displayName|String|&check;|
       |externalId|String|

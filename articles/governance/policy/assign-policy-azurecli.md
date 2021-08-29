@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Azure CLI를 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7dd0ca2e1462b03c5a8e3807dd90d424e4b12be4
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: aa81d273bb018aa55f9024aa41097401b8d4cd06
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108733610"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122324508"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 

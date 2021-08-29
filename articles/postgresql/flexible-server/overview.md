@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/14/2021
+ms.date: 08/24/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 25b2788591c44cb4b75c89ca020825d16884224b
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: ae7ef0d0ff3cb946bc8c900517a8975bb618ad3c
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112116163"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122768147"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -100,19 +100,26 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 오스트레일리아 남동부 | :heavy_check_mark: | :x: | 
 | 브라질 남부 | :heavy_check_mark: | :x: |
 | 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 인도 중부 | :heavy_check_mark: | :x: |
 | 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 동아시아 | :heavy_check_mark: | :x: |
 | 미국 동부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
 | 프랑스 중부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 독일 중서부 | :heavy_check_mark: | :heavy_check_mark: |
 | 일본 동부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 일본 서부 | :heavy_check_mark: | :x: |
 | 한국 중부 | :heavy_check_mark: | :x: | 
+| 한국 남부 | :heavy_check_mark: | :x: | 
 | 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
 | 노르웨이 동부 | :heavy_check_mark: | :x: |
 | 남아프리카 북부 | :heavy_check_mark: | :x: |
+| 미국 중남부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
 | 스위스 북부 | :heavy_check_mark: | :x: |
 | 아랍에미리트 북부 | :heavy_check_mark: | :x: |
 | 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | 
+| 영국 서부 | :heavy_check_mark: | :x: | 
 | 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
 | 미국 서부 | :heavy_check_mark: | :x: |
 | 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |

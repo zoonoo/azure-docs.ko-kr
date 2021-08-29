@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 100da2e8b259c31daa6b0e72c8d2c4c2b0cb1d51
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 73f1eaebb60d02e27be5585a0287a702abf6df2a
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569713"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121860966"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 
@@ -31,18 +31,18 @@ Synapse SQL의 소비 모델을 사용하면 다양한 데이터베이스 개체
 | **테이블** | [예](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | 아니요, 서버리스 모델은 [Azure Storage](#storage-options)에 배치된 외부 데이터만 쿼리할 수 있습니다. |
 | **뷰** | [예](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). 보기는 전용 모델에서 사용 가능한 [쿼리 언어 요소](#query-language)를 사용할 수 있습니다. | [예](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). 보기는 서버리스 모델에서 사용 가능한 [쿼리 언어 요소](#query-language)를 사용할 수 있습니다. |
 | **스키마** | [예](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [예](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
-| **임시 테이블** | [예](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | 예 |
+| **임시 테이블** | [예](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?context=/azure/synapse-analytics/context/context) | 예 |
 | **절차** | [예](/sql/t-sql/statements/create-procedure-transact-sql?view=azure-sqldw-latest&preserve-view=true) | 예 |
 | **함수** | [예](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | 예, 인라인 테이블 반환 함수만 지원됩니다. |
 | **트리거** | 예 | 예 |
 | **외부 테이블** | [예](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). 지원되는 [데이터 형식](#data-formats)을 참조하세요. | [예](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). 지원되는 [데이터 형식](#data-formats)을 참조하세요. |
 | **캐싱 쿼리** | 예, 여러 양식(SSD 기반 캐싱, 메모리 내, 결과 집합 캐싱). 또한 구체화된 뷰가 지원됩니다. | 예 |
 | **테이블 변수** | [아니요](/sql/t-sql/data-types/table-transact-sql?view=azure-sqldw-latest&preserve-view=true), 임시 테이블을 사용합니다. | 예 |
-| **[테이블 배포](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**               | 예 | 예 |
-| **[테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | 예 | 예 |
-| **[테이블 파티션](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | 예 | 예 |
+| **[테이블 배포](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)**               | 예 | 예 |
+| **[테이블 인덱스](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)**                           | 예 | 예 |
+| **[테이블 파티션](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)**                     | 예 | 예 |
 | **[통계](develop-tables-statistics.md)**            | 예 | 예 |
-| **[작업 관리, 리소스 클래스 및 동시성 제어](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | 예    | 예 |
+| **[작업 관리, 리소스 클래스 및 동시성 제어](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context)** | 예    | 예 |
 | **비용 제어** | 예, 확장 및 축소 작업을 사용합니다. | 예, [Azure Portal 또는 T-SQL 프로시저](./data-processed.md#cost-control)를 사용합니다. |
 
 ## <a name="query-language"></a>쿼리 언어

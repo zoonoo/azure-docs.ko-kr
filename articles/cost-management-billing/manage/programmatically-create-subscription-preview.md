@@ -9,12 +9,12 @@ ms.date: 06/09/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: edf57ec72d056f58eaca624b4c91b27a82ad9daf
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 5ef00531c4f13ecd43cb7bd1d691f67d996c5f73
+ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902055"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122769654"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-legacy-apis"></a>레거시 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
@@ -192,7 +192,6 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 이메일 주소입니다. `OwnerObjectId` 대신 매개 변수를 사용할 수 있습니다.|
 | `OwnerApplicationId` | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 서비스 주체의 애플리케이션 ID입니다. `OwnerObjectId` 대신 매개 변수를 사용할 수 있습니다. 매개 변수를 사용하는 경우 [디렉터리에 대한 읽기 액세스 권한](/powershell/azure/active-directory/signing-in-service-principal#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole)이 서비스 주체에 있어야 합니다.|
 
-모든 매개 변수의 전체 목록을 보려면 [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription)을 참조하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

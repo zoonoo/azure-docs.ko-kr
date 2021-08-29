@@ -47,7 +47,7 @@
             - name: Socket.io(Node.js)
               href: cloud-services-nodejs-chat-app-socketio.md
             - name: Twilio를 사용하여 전화 걸기(.NET)
-              href: ../partner-twilio-cloud-services-dotnet-phone-call-web-role.md
+              href: 'https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp'
         - name: 시작 작업 구성
           items:
             - name: 시작 작업 만들기
