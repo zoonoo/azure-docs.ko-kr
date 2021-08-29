@@ -70,6 +70,8 @@
                   href: class-type-react-linux.md
                 - name: React(Windows)
                   href: class-type-react-windows.md
+            - name: RStudio
+              href: class-type-rstudio-linux.md
             - name: Linux에서 셸 스크립팅
               href: class-type-shell-scripting-linux.md
             - name: SolidWorks CAD(computer-aided design)
@@ -106,12 +108,24 @@
           href: how-to-connect-peer-virtual-network.md
         - name: 공유 리소스를 사용하여 랩을 만드는 방법
           href: how-to-create-a-lab-with-shared-resource.md
-        - name: 공유 이미지 갤러리 사용
+        - name: 사용자 지정 이미지에 공유 이미지 갤러리 사용
           items:
             - name: 공유 이미지 갤러리 연결 또는 분리
               href: how-to-attach-detach-shared-image-gallery.md
-            - name: 공유 이미지 갤러리에 Windows 사용자 지정 이미지 업로드
-              href: upload-custom-image-shared-image-gallery.md
+            - name: 랩용 사용자 지정 이미지 만들기
+              href: approaches-for-custom-image-creation.md
+            - name: Windows
+              items:
+                - name: Azure VM에서 사용자 지정 이미지 가져오기
+                  href: how-to-bring-custom-windows-image-azure-vm.md
+                - name: 물리적 환경에서 사용자 지정 이미지 가져오기
+                  href: upload-custom-image-shared-image-gallery.md
+            - name: Linux
+              items:
+                - name: Azure VM에서 사용자 지정 이미지 가져오기
+                  href: how-to-bring-custom-linux-image-azure-vm.md
+                - name: 물리적 환경에서 사용자 지정 이미지 가져오기
+                  href: how-to-bring-custom-linux-image-vhd.md
         - name: 추가 소유자를 클래스룸 랩에 추가
           href: how-to-add-user-lab-owner.md
         - name: 방화벽 설정 구성하기
