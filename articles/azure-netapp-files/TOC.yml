@@ -75,7 +75,7 @@
               href: solutions-benefits-azure-netapp-files-oracle-database.md
             - name: 전자 디자인 자동화에 Azure NetApp Files 사용의 이점
               href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
-            - name: Windows Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점
+            - name: Azure Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점
               href: solutions-windows-virtual-desktop.md
             - name: SQL Server 배포에 Azure NetApp Files를 사용할 경우의 이점
               href: solutions-benefits-azure-netapp-files-sql-server.md
@@ -119,8 +119,8 @@
       items:
         - name: SMB 볼륨 만들기
           href: azure-netapp-files-create-volumes-smb.md
-        - name: 지속적인 가용성을 사용하도록 기존 SMB 볼륨 변환
-          href: convert-smb-continuous-availability.md
+        - name: 기존 SMB 볼륨에서 지속적인 가용성 사용
+          href: enable-continuous-availability-existing-SMB.md
     - name: 이중 프로토콜 볼륨 만들기
       href: create-volumes-dual-protocol.md
     - name: TLS를 통해 ADDS LDAP 구성
@@ -129,6 +129,8 @@
       href: azure-netapp-files-configure-export-policy.md
     - name: 볼륨 탑재 또는 분리
       href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+    - name: Unix 권한 구성 및 소유권 모드 변경
+      href: configure-unix-permissions-change-ownership-mode.md
     - name: 스냅샷 관리
       href: azure-netapp-files-manage-snapshots.md
     - name: 용량 풀 또는 볼륨 크기 조정

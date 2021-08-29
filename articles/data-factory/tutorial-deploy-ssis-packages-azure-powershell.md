@@ -2,18 +2,19 @@
 title: PowerShell을 사용하여 Azure-SSIS Integration Runtime 설정
 description: Azure에 SSIS 패키지를 배포하고 실행할 수 있도록 PowerShell을 사용하여 Azure Data Factory에서 Azure-SSIS Integration Runtime을 설정하는 방법을 알아봅니다.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/19/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 3b8352581786cc6d9927f38fef786374072bd233
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9722047ab339ff8b7feae624a7915e9455c4d2e1
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447741"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121750923"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Azure Data Factory에서 PowerShell을 사용하여 Azure-SSIS IR 설정
 
@@ -39,7 +40,7 @@ Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-
 > * 전체 스크립트를 검토합니다.
 > * SSIS 패키지를 배포합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

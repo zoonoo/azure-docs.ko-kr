@@ -290,8 +290,6 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
-                - name: C# 격리(.NET 5)
-                  href: dotnet-isolated-process-developer-howtos.md
                 - name: Gradle을 사용하는 Java
                   href: functions-create-first-java-gradle.md
                 - name: Eclipse를 사용하는 Java
@@ -517,6 +515,8 @@
           href: /python/api/azure-functions/azure.functions
     - name: 앱 설정 참조
       href: functions-app-settings.md
+    - name: Azure Functions Core Tools
+      href: functions-core-tools-reference.md
     - name: 트리거 및 바인딩
       items:
         - name: Blob Storage

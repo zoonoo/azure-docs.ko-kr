@@ -3,8 +3,8 @@ title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을
 description: 사용자 계정을 Azure AD에서 LogicGate로 자동 프로비저닝 및 프로비저닝 해제 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: eea988ef-b0f1-4d22-b867-310f167540c3
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/17/2021
-ms.author: Zhchia
-ms.openlocfilehash: 850e2f9e58c5e9d0c6d7bc2b5c15aa291d3c8e42
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.author: thwimmer
+ms.openlocfilehash: c3de4133e8cb3d769918cf98525a7090d4b30e28
+ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125376"
+ms.lasthandoff: 08/17/2021
+ms.locfileid: "122327168"
 ---
 # <a name="tutorial-configure-logicgate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 LogicGate 구성
 
@@ -62,7 +62,7 @@ ms.locfileid: "108125376"
     
     ![키 탭](./media/logicgate-provisioning-tutorial/access.png)
 
-## <a name="step-3-add-logicgate-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 LogicGate 추가
+## <a name="step-3-add-logicgate-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 LogicGate 추가
 
 Azure AD 애플리케이션 갤러리에서 LogicGate를 추가하여 LogicGate로 프로비저닝 관리를 시작합니다. 이전에 SSO를 LogicGate에 사용하도록 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

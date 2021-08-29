@@ -13,16 +13,17 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 0b02662658b2199a13f117ad95c6402f9b2974f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 23e87c1b91de60f300adf7aa027ba1bd9704251f
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95519849"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823708"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP 웹 및 작업자 역할 만들기
-
 ## <a name="overview"></a>개요
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](cloud-services/includes/deprecation-announcement.md)]
 
 이 가이드는 Windows 개발 환경에서 PHP 웹이나 작업자 역할을 만들고, 사용 가능한 "기본 제공" 버전에서 특정 PHP 버전을 선택하여 PHP 구성을 변경하고, 확장을 사용하고, 마지막으로 Azure에 배포하는 방법을 보여 줍니다. 또한 사용자 지정 구성 및 확장으로 제공하는 PHP 런타임을 사용하도록 웹 또는 작업자 역할을 구성하는 방법도 설명합니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Storage에 대한 Azure Resource Graph 샘플 쿼리
 description: 리소스 종류와 테이블을 사용하여 Azure Storage 관련 리소스와 속성에 액세스하는 방법을 보여 주는 Azure Storage에 대한 샘플 Azure Resource Graph 쿼리입니다.
-ms.date: 07/21/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-resourcegraph-sample
-ms.openlocfilehash: 01c85d667ae8ded081c6a71028fd1506047fbdab
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 081158350909e7dbf63cb2e6827eca4726331b5a
+ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114669983"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121862084"
 ---
 # <a name="azure-resource-graph-sample-queries-for-azure-storage"></a>Azure Storage에 대한 Azure Resource Graph 샘플 쿼리
 

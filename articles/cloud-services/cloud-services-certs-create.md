@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 926d711f86a07ee22a4370e838efae9f4e0be957
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: e2c5ecdd43d90fbfe6e6b792b1d0a6e990bb3736
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113126215"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824905"
 ---
 # <a name="certificates-overview-for-azure-cloud-services-classic"></a>Azure Cloud Services(클래식) 인증서 개요
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 토픽에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 배포하는 방법을 살펴봅니다.
 

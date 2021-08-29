@@ -85,6 +85,8 @@
           href: manage-public-ip-address-prefix.md
         - name: Azure VNET의 IPv6
           href: ipv6-overview.md
+        - name: 기본 아웃바운드 액세스
+          href: default-outbound-access.md
         - name: 라우팅 기본 설정
           href: routing-preference-overview.md
         - name: 라우팅 기본 설정 무제한
@@ -126,6 +128,8 @@
           href: subnet-extension.md
         - name: 서브넷 위임
           href: subnet-delegation-overview.md
+    - name: 가상 머신 네트워킹
+      href: network-overview.md
     - name: 클래식 배포
       href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: 방법 가이드
@@ -463,7 +467,7 @@
       href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/virtual-network
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions
