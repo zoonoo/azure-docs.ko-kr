@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 5904e65ee26d754728586a25af3b7c63c257cf5f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 3b8234992c82315efaf2115bc1900d04293e5708
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086118"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824464"
 ---
 # <a name="connecting-azure-cloud-services-classic-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure Cloud Services(클래식) 역할을 Azure에서 호스트되는 사용자 지정 AD 도메인 컨트롤러로 연결
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경을 통해 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 클라우드 서비스(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [클라우드 서비스(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 먼저 Azure에서 Virtual Network(VNet)를 설정합니다. 그런 다음 VNet에 Active Directory 도메인 컨트롤러(Azure Virtual Machine에서 호스팅되는)를 추가합니다. 그런 다음, 기존 클라우드 서비스 역할을 사전에 만든 VNet에 추가한 후 도메인 컨트롤러에 연결합니다.
 

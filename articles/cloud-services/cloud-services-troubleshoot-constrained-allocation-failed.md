@@ -7,14 +7,16 @@ ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 2b491560af61bc0afc8696d45c32ed91b846a9e4
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 6c277fb073776a7cdbc31cd4ccc9183f8024ce1d
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113090028"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122823537"
 ---
 # <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Azure에 클라우드 서비스(클래식)를 배포할 때 ConstrainedAllocationFailed 문제 해결
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 이 문서에서는 할당 제약 조건 때문에 Azure 클라우드 서비스(클래식)를 배포할 수 없는 할당 오류를 해결합니다.
 

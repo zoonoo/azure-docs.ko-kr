@@ -8,19 +8,18 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 40811183a4af32befb6fa49f6baabcff11029d6f
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0c8ab7cdfcabc6cb1ebf86fb1ebb4233bae9cf56
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113091756"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824221"
 ---
 # <a name="get-started-with-azure-cloud-services-classic-and-aspnet"></a>Azure Cloud Services(클래식) 및 ASP.NET 시작
 
 ## <a name="overview"></a>개요
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 애플리케이션을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 애플리케이션은 [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), [Azure Blob 서비스](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) 및 [Azure 큐 서비스](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
 

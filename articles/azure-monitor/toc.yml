@@ -21,14 +21,6 @@
         - name: ARM 템플릿
           displayName: Resource Manager
           href: essentials/quick-collect-activity-log-arm.md
-    - name: 가상 머신 모니터링
-      items:
-        - name: Azure VM
-          href: vm/quick-monitor-azure-vm.md
-        - name: Linux 컴퓨터
-          href: vm/quick-collect-linux-computer.md
-        - name: Windows 컴퓨터
-          href: vm/quick-collect-windows-computer.md
     - name: 애플리케이션 모니터링
       items:
         - name: ASP.NET Core 애플리케이션
@@ -123,10 +115,18 @@
       items:
         - name: 로그 데이터
           href: logs/data-security.md
+        - name: 로그에 대한 Azure AD 인증
+          href: logs/azure-ad-authentication-logs.md
         - name: 고객 관리형 키
           href: logs/customer-managed-keys.md
         - name: Private Link 네트워킹
-          href: logs/private-link-security.md
+          items:
+            - name: 프라이빗 링크 개요
+              href: logs/private-link-security.md
+            - name: Private Link 디자인
+              href: logs/private-link-design.md
+            - name: Private Link 구성
+              href: logs/private-link-configure.md
         - name: 프라이빗 스토리지
           href: logs/private-storage.md
         - name: 개인 로그 데이터 처리
@@ -175,6 +175,8 @@
             - name: 워크로드 모니터링
               href: vm/monitor-virtual-machine-workloads.md
           displayname: VM
+        - name: Kubernetes 모니터링
+          href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
     - name: 배포
       items:
         - name: Azure Monitor 배포
@@ -193,7 +195,7 @@
           items:
             - name: 사용량 및 예상 비용
               href: usage-estimated-costs.md
-            - name: 애플리케이션 사용량 및 비용
+            - name: Application Insights 사용량 및 비용
               href: app/pricing.md
             - name: 로그 데이터 사용량 및 비용
               href: logs/manage-cost-storage.md
@@ -242,10 +244,14 @@
               href: logs/manage-access.md
             - name: 작업 영역 이동
               href: logs/move-workspace.md
+            - name: 지역 간 작업 영역 이동
+              href: logs/move-workspace-region.md
             - name: 서비스 공급자용 디자인
               href: logs/service-providers.md
             - name: Dedicated 클러스터
               href: logs/logs-dedicated-clusters.md
+            - name: 가용성 영역
+              href: logs/availability-zones.md
         - name: Log Analytics
           items:
             - name: 개요
@@ -1106,18 +1112,30 @@
               href: containers/container-insights-enable-aks-policy.md
             - name: 지역 매핑
               href: containers/container-insights-region-mapping.md
-        - name: 성능 모니터링
-          href: containers/container-insights-analyze.md
-        - name: GPU 성능 모니터링
-          href: containers/container-insights-gpu-monitoring.md
-        - name: 네트워크 구성 모니터링
-          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-        - name: 배포 및 HPA 모니터링
-          href: containers/container-insights-deployment-hpa-metrics.md
-        - name: 영구 볼륨(PV) 모니터링
-          href: containers/container-insights-persistent-volumes.md
-        - name: 보고서 탭
-          href: insights/container-insights-reports.md
+            - name: 에이전트 관리
+              href: containers/container-insights-manage-agent.md
+            - name: Prometheus 메트릭 스크래핑 구성
+              href: containers/container-insights-prometheus-integration.md
+            - name: 에이전트 컬렉션 설정 구성
+              href: containers/container-insights-agent-config.md
+            - name: 메트릭을 사용하도록 업데이트
+              href: containers/container-insights-update-metrics.md
+        - name: Monitor
+          items:
+            - name: 성능 모니터링
+              href: containers/container-insights-analyze.md
+            - name: GPU 성능 모니터링
+              href: containers/container-insights-gpu-monitoring.md
+            - name: 네트워크 구성 모니터링
+              href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+            - name: 배포 및 HPA 모니터링
+              href: containers/container-insights-deployment-hpa-metrics.md
+            - name: 영구 볼륨(PV) 모니터링
+              href: containers/container-insights-persistent-volumes.md
+            - name: 보고서 탭
+              href: containers/container-insights-reports.md
+        - name: 로그 쿼리
+          href: containers/container-insights-log-query.md
         - name: 라이브 데이터 보기
           items:
             - name: 라이브 데이터 개요
@@ -1128,22 +1146,12 @@
               href: containers/container-insights-livedata-metrics.md
             - name: 배포 보기
               href: containers/container-insights-livedata-deployments.md
-        - name: 로그 쿼리를 사용하여 데이터 분석
-          href: containers/container-insights-log-search.md
         - name: 경고
           items:
             - name: 로그 경고 규칙 만들기
               href: containers/container-insights-log-alerts.md
             - name: 메트릭 경고 규칙 만들기
               href: containers/container-insights-metric-alerts.md
-        - name: 에이전트 관리
-          href: containers/container-insights-manage-agent.md
-        - name: Prometheus 메트릭 스크래핑 구성
-          href: containers/container-insights-prometheus-integration.md
-        - name: 에이전트 컬렉션 설정 구성
-          href: containers/container-insights-agent-config.md
-        - name: 메트릭을 사용하도록 업데이트
-          href: containers/container-insights-update-metrics.md
         - name: 비용 및 사용량 관리
           href: containers/container-insights-cost.md
         - name: 모니터링 사용 안 함
@@ -1319,7 +1327,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

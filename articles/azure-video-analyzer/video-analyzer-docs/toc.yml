@@ -77,6 +77,8 @@
       href: pipeline-extension.md
     - name: 비디오 녹화
       href: video-recording.md
+    - name: AI 컴퍼지션 개요
+      href: ai-composition-overview.md
     - name: 시나리오
       items:
         - name: 이벤트 기반 비디오 녹화
@@ -121,6 +123,8 @@
       items:
         - name: gRPC 유추 서버 개발 및 배포
           href: develop-deploy-grpc-inference-srv.md
+        - name: AI 컴퍼지션을 사용하여 분석
+          href: analyze-ai-composition.md
     - name: 포털
       items:
         - name: 포털을 사용하여 직접 메서드 호출
@@ -129,12 +133,14 @@
       items:
         - name: 모니터링 및 로깅
           href: monitor-log-edge.md
+    - name: 시각화
+      items:
+        - name: Power BI에 플레이어 위젯 포함
+          href: embed-player-in-power-bi.md
     - name: 문제 해결
       href: troubleshoot.md
 - name: 참조
   items:
-    - name: 액세스 정책
-      href: access-policies.md
     - name: 개발자 SDK
       href: sdk.md
     - name: 직접 메서드

@@ -8,17 +8,16 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 5f0e888d1eaa31e106610fcbba11b47905aa1b05
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 27d42bcf4d91cebc4679f71fce90111862172051
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113086409"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122824473"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Azure에서 응용 프로그램용 TLS 구성
 
-> [!IMPORTANT]
-> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(classic)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 이전 SSL(Secure Socket Layer) 암호화로 알려진 TLS(Transport Layer Security)는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대한 HTTPS 엔드포인트를 지정하는 방법과 TLS/SSL 인증서를 업로드하여 응용 프로그램을 보호하는 방법을 설명합니다.
 

@@ -13,17 +13,20 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 94f248edfebd6c6fedb78a54eee220c0ef38b4ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd4d6f9de3da69394ce5795d2ab6064ecb154f34
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95545878"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821402"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](../cloud-services/includes/deprecation-announcement.md)]
+
 이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 클라우드 서비스 프로젝트에서 Azure 스토리지 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage를 사용하는 방법을 설명합니다.
 
 코드에서 큐를 만드는 방법을 살펴보겠습니다. 또한 큐 메시지 추가, 수정, 읽기 및 제거와 같은 기본 큐 작업을 수행하는 방법을 보여 드립니다. 샘플은 C# 코드로 작성되었으며 [Microsoft Azure Storage Client Library for .NET](/previous-versions/azure/dn261237(v=azure.100))을 사용합니다.
