@@ -212,6 +212,8 @@ items:
               - name: 데이터 흐름 성능
                 href: concepts-data-flow-performance.md
                 displayName: 'merge, timeout'
+              - name: Integration Runtime 성능
+                href: concepts-integration-runtime-performance.md
               - name: 데이터 흐름 캔버스 관리
                 href: concepts-data-flow-manage-graph.md
               - name: 식 작성기

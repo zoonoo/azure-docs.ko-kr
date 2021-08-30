@@ -70,7 +70,21 @@
     - name: 장애 조치(failover) 및 패치
       href: cache-failover.md
     - name: 모범 사례
-      href: cache-best-practices.md
+      items:
+        - name: 연결 복원력
+          href: cache-best-practices-connection.md
+        - name: 서버 로드 관리
+          href: cache-best-practices-server-load.md
+        - name: 메모리 관리
+          href: cache-best-practices-memory-management.md
+        - name: 개발
+          href: cache-best-practices-development.md
+        - name: 크기 조정
+          href: cache-best-practices-scale.md
+        - name: Kubernetes 호스트 클라이언트 응용 프로그램
+          href: cache-best-practices-kubernetes.md
+        - name: 성능 테스트
+          href: cache-best-practices-performance.md
     - name: 보안
       items:
         - name: 네트워크 격리 옵션

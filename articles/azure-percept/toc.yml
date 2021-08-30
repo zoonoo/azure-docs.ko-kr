@@ -80,6 +80,8 @@
           href: delete-voice-assistant-application.md
     - name: Azure Percept 디바이스 업데이트
       items:
+        - name: 업데이트 전략을 확인하는 방법
+          href: how-to-determine-your-update-strategy.md
         - name: 무선 업데이트 설정
           href: how-to-set-up-over-the-air-updates.md
         - name: 업데이트 패키지 식별
@@ -120,6 +122,14 @@
           href: how-to-get-hardware-support.md
 - name: 참조
   items:
+    - name: 릴리스
+      items:
+        - name: OTA 업데이트용 소프트웨어 릴리스
+          href: software-releases-over-the-air-updates.md
+        - name: USB를 통해 업데이트하기 위한 Azure Percept DK 소프트웨어 릴리스
+          href: software-releases-usb-cable-updates.md
+        - name: Azure Percept DK 소프트웨어 릴리스 정보
+          href: azure-percept-devkit-software-release-notes.md
     - name: Azure Percept 디바이스 데이터시트
       items:
         - name: Azure Percept DK 데이터시트

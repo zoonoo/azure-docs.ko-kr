@@ -101,6 +101,8 @@
       href: powershell-samples.md
     - name: Azure Resource Graph 쿼리
       href: ./resource-graph-samples.md
+    - name: Azure CLI 메트릭 경고
+      href: azure-cli-metrics-alert-sample.md
 - name: 개념
   items:
     - name: 무엇을 모니터링할 수 있나요?
@@ -283,7 +285,7 @@
               href: logs/query-audit.md
             - name: 쿼리 최적화
               href: logs/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: logs/functions.md
             - name: 텍스트 데이터 구문 분석
               href: logs/parse-text.md

@@ -69,14 +69,16 @@
               href: ../virtual-machines/workloads/sap/troubleshooting-monitoring.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: HANA 쪽에서 모니터링 및 문제 해결
               href: ../virtual-machines/workloads/sap/hana-monitor-troubleshoot.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-            - name: SAP 솔루션을 위한 Azure Monitor 개요
-              href: ../virtual-machines/workloads/sap/azure-monitor-overview.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: Azure의 SAP 모니터링
+              href: ../virtual-machines/workloads/sap/monitor-sap-on-azure.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: SAP 솔루션을 위한 Azure Monitor 공급자
               href: ../virtual-machines/workloads/sap/azure-monitor-providers.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: SAP 솔루션을 위한 Azure Monitor 배포 - Azure Portal
               href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: SAP 솔루션을 위한 Azure Monitor 배포 - Azure PowerShell
               href: ../virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+            - name: 데이터 참조 모니터링
+              href: ../virtual-machines/workloads/sap/monitor-sap-on-azure-reference.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
             - name: SAP 솔루션을 위한 Azure Monitor FAQ
               href: ../virtual-machines/workloads/sap/azure-monitor-faq.yml?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
         - name: 방법

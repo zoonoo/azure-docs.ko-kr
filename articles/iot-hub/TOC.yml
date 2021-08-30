@@ -102,21 +102,21 @@
         - name: 메시지 보내기 및 받기
           href: iot-hub-devguide-messaging.md
           items:
+            - name: IoT Hub 메시지 만들기 및 읽기
+              href: iot-hub-devguide-messages-construct.md
+            - name: 디바이스 통신 프로토콜 선택
+              href: iot-hub-devguide-protocols.md
+            - name: 기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
+              href: iot-hub-devguide-messages-read-builtin.md
             - name: 이 메시지 라우팅을 사용하여 디바이스-클라우드 간 메시지 보내기
               href: iot-hub-devguide-messages-d2c.md
               items:
-                - name: IoT Hub 메시지 만들기 및 읽기
-                  href: iot-hub-devguide-messages-construct.md
-                - name: 기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
-                  href: iot-hub-devguide-messages-read-builtin.md
                 - name: 디바이스-클라우드 메시지에 대한 사용자 지정 엔드포인트 및 라우팅 규칙 사용
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: 메시지 경로에 쿼리 추가
                   href: iot-hub-devguide-routing-query-syntax.md
             - name: IoT Hub에서 클라우드-디바이스 메시지 보내기
               href: iot-hub-devguide-messages-c2d.md
-            - name: 통신 프로토콜 선택
-              href: iot-hub-devguide-protocols.md
         - name: Event Grid를 사용하여 IoT Hub 이벤트에 대응
           href: iot-hub-event-grid.md
         - name: 디바이스에서 파일 업로드
@@ -310,6 +310,8 @@
           href: iot-hub-ip-filtering.md
         - name: 공용 네트워크 액세스 관리
           href: iot-hub-public-network-access.md
+        - name: 아웃바운드 네트워크 액세스 제한
+          href: iot-hub-restrict-outbound-network-access.md
         - name: 규모에 따른 자동 디바이스 관리
           items:
             - name: Azure Portal 사용

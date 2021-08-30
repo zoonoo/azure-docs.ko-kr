@@ -210,6 +210,8 @@
                   href: ../fundamentals/operational-checklist.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: 위협 감지 및 완화
   items:
+    - name: 랜섬웨어에 대한 백업 및 복원 계획
+      href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: 위협 보호
       href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: 위협 분석

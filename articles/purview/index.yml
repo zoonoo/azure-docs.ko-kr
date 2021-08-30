@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Purview 설명서
-summary: 조직에서 데이터 원본을 찾고, 이해하고, 사용할 수 있도록 Azure Purview를 사용하는 방법을 알아봅니다.
+summary: 조직에서 데이터 원본을 찾고, 이해하고, 통제하고, 사용할 수 있도록 Azure Purview를 사용하는 방법을 알아봅니다. 자습서, REST API 참조 및 기타 문서에서는 사용 가능한 데이터 소스를 검색하고 올바른 사용을 관리할 수 있는 데이터 리포지토리를 계획하고 구성하는 방법을 보여줍니다.
 metadata:
   title: Azure Purview 설명서
   description: 조직에서 데이터 원본을 찾고, 이해하고, 사용할 수 있는 Azure Purview를 사용하는 방법을 알아봅니다. 자습서, REST API 참조 및 기타 설명서에서는 데이터 소비자가 사용 가능한 데이터 원본을 검색하고 문제의 전문가가 제공하는 지식을 얻을 수 있는 데이터 리포지토리를 계획하고 구성하는 방법을 보여줍니다.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 06/09/2021
-  ms.openlocfilehash: 8db36ffb5f1d081e0e4dbb2cd6dbca02c7ddf726
-  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+  ms.date: 08/26/2021
+  ms.openlocfilehash: fbe52bbe6bc7835dc80251f7dffcd31c7a999d52
+  ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111904016"
+  ms.lasthandoff: 08/26/2021
+  ms.locfileid: "122969735"
 landingContent:
 - title: Azure Purview 정보
   linkLists:
@@ -24,24 +24,30 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Purview Studio 사용
-      url: use-purview-studio.md
     - text: 배포 모범 사례
       url: deployment-best-practices.md
-    - text: 데이터 카탈로그 권한
+    - text: Purview Studio 사용
+      url: use-purview-studio.md
+    - text: Purview 액세스 제어 이해
       url: catalog-permissions.md
-    - text: 지원되는 데이터 원본 및 파일 형식
-      url: sources-and-scans.md
-    - text: 데이터 계보
-      url: concept-data-lineage.md
+    - text: 탄력적 데이터 맵 이해
+      url: catalog-permissions.md
+    - text: 소스 검색 및 수집
+      url: concept-scans-and-ingestion.md
 - title: 시작
   linkLists:
   - linkListType: quickstart
     links:
     - text: Purview 계정 만들기 - Portal
       url: create-catalog-portal.md
-    - text: Purview 계정 만들기 - PowerShell/CLI
-      url: create-catalog-powershell.md
+    - text: 컬렉션 만들기 - Portal
+      url: quickstart-create-collection.md
+  - linkListType: how-to-guide
+    links:
+    - text: 액세스 및 컬렉션 관리
+      url: how-to-create-and-manage-collections.md
+    - text: 소스에 연결
+      url: manage-credentials.md
   - linkListType: tutorial
     links:
     - text: 시작 키트 실행 및 데이터 검사
@@ -54,6 +60,8 @@ landingContent:
       url: tutorial-schemas-and-classifications.md
     - text: 용어집 용어 만들기
       url: tutorial-import-create-glossary-terms.md
+    - text: REST API 사용
+      url: tutorial-using-rest-apis.md
 - title: Azure 데이터 원본 등록 및 검사
   linkLists:
   - linkListType: how-to-guide
@@ -68,29 +76,15 @@ landingContent:
       url: register-scan-synapse-workspace.md
     - text: Power BI 테넌트 검사
       url: register-scan-power-bi-tenant.md
-    - text: Azure 전용 SQL 풀(이전의 SQL DW) 검사
-      url: register-scan-azure-synapse-analytics.md
     - text: Azure Blob Storage 검사
       url: register-scan-azure-blob-storage-source.md
+    - text: 연결 문제 해결
+      url: troubleshoot-connections.md
   - linkListType: tutorial
     links:
     - text: 대규모 Azure 원본 온보딩
       url: tutorial-data-sources-readiness.md
-- title: 데이터 검색
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 찾아보기 및 계보
-      url: tutorial-browse-and-view-lineage.md
-  - linkListType: how-to-guide
-    links:
-    - text: 데이터 계보 기능 사용
-      url: catalog-lineage-user-guide.md
-    - text: 자산 유형별 찾아보기
-      url: how-to-browse-catalog.md
-    - text: 자산, 용어, 주석 및 연락처 검색
-      url: how-to-search-catalog.md
-- title: 데이터 큐레이팅
+- title: 데이터 분류
   linkLists:
   - linkListType: tutorial
     links:
@@ -100,25 +94,45 @@ landingContent:
       url: tutorial-import-create-glossary-terms.md
   - linkListType: how-to-guide
     links:
+    - text: 민감도 레이블 적용
+      url: create-sensitivity-label.md
     - text: 사용자 지정 분류 및 규칙 만들기, 편집 및 삭제
       url: create-a-custom-classification-and-classification-rule.md
     - text: 용어집 만들기, 가져오기 및 내보내기
       url: how-to-create-import-export-glossary.md
     - text: 자산 대량 편집
       url: how-to-bulk-edit-assets.md
+- title: 데이터 검색
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 찾아보기 및 계보
+      url: tutorial-browse-and-view-lineage.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Data Factory로 연결
+      url: how-to-link-azure-data-factory.md
+    - text: 데이터 계보 기능 사용
+      url: catalog-lineage-user-guide.md
+    - text: 자산 유형별 찾아보기
+      url: how-to-browse-catalog.md
+    - text: 자산, 용어, 주석 및 연락처 검색
+      url: how-to-search-catalog.md
 - title: 비 Azure 데이터 원본 검사
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: SQL Server 온-프레미스 검사
       url: register-scan-on-premises-sql-server.md
+    - text: Google BigQuery 검사
+      url: register-scan-google-bigquery-source.md
     - text: Amazon S3 검사
       url: register-scan-amazon-s3.md
     - text: Oracle 검사
       url: register-scan-oracle-source.md
     - text: Hive Metastore Database 검사
       url: register-scan-hive-metastore-source.md
-- title: 데이터 자산 이해
+- title: 데이터 이해
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -130,3 +144,13 @@ landingContent:
       url: classification-insights.md
     - text: 용어집 인사이트 보기
       url: glossary-insights.md
+- title: 네트워크 보호
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Purview와 함께 프라이빗 엔드포인트 사용
+      url: catalog-private-link.md
+    - text: 네트워크 구성
+      url: catalog-private-link-name-resolution.md
+    - text: 프라이빗 네트워크에 연결
+      url: manage-integration-runtimes.md

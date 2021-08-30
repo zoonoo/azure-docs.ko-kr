@@ -142,6 +142,8 @@
       href: dbms_guide_sapase.md
     - name: 'Azure의 SAP MaxDB, liveCache 및 Content Server'
       href: dbms_guide_maxdb.md
+    - name: Azure VM의 SAP IQ
+      href: sap-iq-deployment-guide.md
     - name: HANA -
       items:
         - name: Azure VM에서 SAP HANA 설치
@@ -270,8 +272,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
 - name: SAP 솔루션을 위한 Azure Monitor
   items:
-    - name: AMS 개요
-      href: azure-monitor-overview.md
+    - name: Azure의 SAP 모니터링
+      href: monitor-sap-on-azure.md
     - name: AMS 공급자
       href: azure-monitor-providers.md
     - name: AMS 구성 - 포털
@@ -280,6 +282,8 @@
       href: azure-monitor-alerts-portal.md
     - name: AMS 구성 - Azure PowerShell
       href: azure-monitor-sap-quickstart-powershell.md
+    - name: 데이터 참조 모니터링
+      href: monitor-sap-on-azure-reference.md
     - name: AMS FAQ
       href: azure-monitor-faq.yml
 - name: 참조

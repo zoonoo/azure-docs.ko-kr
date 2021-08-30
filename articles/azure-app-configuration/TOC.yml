@@ -158,6 +158,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: 새 Spring Boot 라이브러리로 업데이트
       href: howto-convert-to-the-new-spring-boot.md
+    - name: Azure 지역 간에 리소스 이동
+      href: howto-move-resource-between-regions.md
 - name: 참조
   items:
     - name: 클라이언트 라이브러리

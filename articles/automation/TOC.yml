@@ -8,6 +8,8 @@
       href: automation-faq.md
     - name: 새로운 기능
       href: whats-new.md
+    - name: 새로운 기능을 위한 보관
+      href: whats-new-archive.md
 - name: 빠른 시작
   items:
     - name: Automation 계정 만들기 - 포털
@@ -61,9 +63,9 @@
   items:
     - name: Automation 계정
       items:
-        - name: Azure Portal을 사용하여 Automation 계정 만들기
+        - name: Automation 계정 만들기 - Azure Portal
           href: automation-create-standalone-account.md
-        - name: Resource Manager 템플릿을 사용하여 Automation 계정 만들기
+        - name: Automation 계정 만들기 - Resource Manager 템플릿
           href: quickstart-create-automation-account-template.md
         - name: 관리 ID
           items:

@@ -16,7 +16,7 @@
       href: getting-started-feature.md
 - name: 자습서
   items:
-    - name: 1. Azure Portal로 호스트 풀 만들기
+    - name: 1. 호스트 풀 만들기
       href: create-host-pools-azure-marketplace.md
     - name: 2. 앱 액세스 관리
       href: manage-app-groups.md
@@ -50,7 +50,7 @@
       href: powershell-module.md
     - name: 호스트 풀 및 세션 호스트 만들기
       items:
-        - name: PowerShell
+        - name: PowerShell 또는 Azure CLI를 사용하여 호스트 풀 만들기
           href: create-host-pools-powershell.md
         - name: Azure AD 조인 세션 호스트 배포
           href: deploy-azure-ad-joined-vm.md
@@ -60,7 +60,7 @@
           href: configure-vm-gpu.md
         - name: 기존 호스트 풀 확장
           href: expand-existing-host-pool.md
-        - name: PowerShell로 앱 그룹 관리
+        - name: PowerShell 또는 Azure CLI를 사용하여 앱 그룹 관리
           href: manage-app-groups-powershell.md
     - name: 호스트 풀 삭제
       href: delete-host-pool.md

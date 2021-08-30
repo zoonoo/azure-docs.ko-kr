@@ -12,10 +12,6 @@
           href: concepts-certificate-rotation.md
 - name: 공유 설명서
   items:
-    - name: 데이터베이스 배포
-      items:
-        - name: GitHub 작업
-          href: how-to-deploy-github-action.md
     - name: 마이그레이션
       items:
         - name: pg_dump 및 pg_restore를 사용하여 데이터 마이그레이션
@@ -405,6 +401,14 @@
           items:
             - name: Azure portal
               href: howto-move-regions-portal.md
+        - name: 업그레이드 및 마이그레이션
+          items:
+            - name: 주 버전 업그레이드 방법
+              href: how-to-upgrade-using-dump-and-restore.md
+            - name: pg_dump 및 pg_restore를 사용하여 데이터 업그레이드/마이그레이션
+              href: howto-migrate-using-dump-and-restore.md
+            - name: pg_dump 및 psql을 사용하여 데이터 업그레이드/마이그레이션
+              href: howto-migrate-using-export-and-import.md
 - name: 유연한 서버(미리 보기)
   expanded: true
   items:
@@ -414,6 +418,10 @@
       href: flexible-server/overview.md
     - name: 릴리스 정보
       href: flexible-server/release-notes.md
+    - name: 단일 서버와 유연한 서버 비교
+      href: flexible-server/concepts-compare-single-server-flexible-server.md
+    - name: 유연한 서버를 무료로 사용해 보기
+      href: flexible-server/how-to-deploy-on-azure-free-account.md
     - name: 빠른 시작
       expanded: true
       items:
@@ -428,6 +436,8 @@
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: 연결 및 쿼리
           items:
+            - name: VNET의 서버에 연결
+              href: flexible-server/quickstart-create-connect-server-vnet.md
             - name: Azure CLI
               href: flexible-server/connect-azure-cli.md
             - name: Python
@@ -501,6 +511,8 @@
                   displayName: 'query store, performance, optimize'
                 - name: 쿼리 저장소 모범 사례
                   href: flexible-server/concepts-query-store-best-practices.md
+                - name: 지능형 튜닝
+                  href: flexible-server/concepts-intelligent-tuning.md
         - name: 복제
           href: flexible-server/concepts-logical.md
           displayName: logical decoding
@@ -514,6 +526,12 @@
               href: flexible-server/how-to-manage-server-cli.md
             - name: 연결 및 쿼리 가이드
               href: flexible-server/how-to-connect-query-guide.md
+        - name: 데이터베이스 배포
+          items:
+            - name: GitHub 작업
+              href: how-to-deploy-github-action.md
+            - name: Azure 파이프라인
+              href: flexible-server/azure-pipelines-deploy-database-task.md
         - name: 예약된 유지 관리
           items:
             - name: Azure portal
@@ -594,7 +612,7 @@
       items:
         - name: 서버 그룹 만들기
           items:
-            - name: 기본 계층(미리 보기)
+            - name: 기본 계층
               href: quickstart-create-hyperscale-basic-tier.md
             - name: 표준 계층
               href: quickstart-create-hyperscale-portal.md

@@ -32,7 +32,9 @@
     - name: 서버리스 개발
       expanded: true
       items:
-        - name: Azure Function을 사용하여 서버리스 채팅 빌드
+        - name: Azure Function으로 알림 앱 빌드
+          href: tutorial-serverless-notification.md
+        - name: Azure Function으로 채팅 앱 빌드
           href: quickstart-serverless.md
     - name: 메시지 게시 및 구독
       href: tutorial-pub-sub-messages.md

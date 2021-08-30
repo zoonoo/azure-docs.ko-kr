@@ -1,7 +1,5 @@
 - name: 기본 사항 설명서
   href: index.yml
-- name: 시스템 ID 손상으로부터 복구
-  href: recover-from-identity-compromise.md
 - name: 개요
   items:
     - name: Azure 보안 소개
@@ -10,6 +8,14 @@
       href: end-to-end.md
     - name: 클라우드의 공동 책임
       href: shared-responsibility.md
+- name: 위협 감지 및 완화
+  items:
+    - name: 랜섬웨어에 대한 백업 및 복원 계획
+      href: backup-plan-to-protect-against-ransomware.md
+    - name: 시스템 ID 손상으로부터 복구
+      href: recover-from-identity-compromise.md
+    - name: 위협 보호
+      href: threat-detection.md
 - name: Azure의 워크로드 보호
   items:
     - name: 보안 기술 기능
@@ -144,8 +150,6 @@
       href: service-fabric-best-practices.md
 - name: '모니터링, 감사 및 작업'
   items:
-    - name: 위협 보호
-      href: threat-detection.md
     - name: Azure 로깅 및 감사
       href: log-audit.md
     - name: 보안 관리 및 모니터링

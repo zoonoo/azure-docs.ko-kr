@@ -314,7 +314,7 @@
               href: service-fabric-cluster-nodetypes.md
             - name: Azure에서 클러스터 업그레이드
               href: service-fabric-cluster-upgrade.md
-            - name: 확장
+            - name: 크기 조정
               href: service-fabric-cluster-scaling.md
             - name: 클러스터 네트워킹 패턴
               href: service-fabric-patterns-networking.md
@@ -324,7 +324,7 @@
               href: service-fabric-standalone-clusters-overview.md
             - name: 독립 실행형 클러스터 업그레이드
               href: service-fabric-cluster-upgrade-standalone.md
-            - name: 확장
+            - name: 크기 조정
               href: service-fabric-cluster-scaling-standalone.md
         - name: 클러스터 리소스 관리자
           items:
@@ -404,7 +404,7 @@
           href: how-to-managed-cluster-configuration.md
         - name: 관리형 클러스터 노드 형식에 VM 확장 집합 확장 추가
           href: how-to-managed-cluster-vmss-extension.md
-        - name: NSG 규칙 및 기타 관리형 클러스터 네트워킹 옵션 추가
+        - name: 관리형 클러스터 네트워크 설정 구성
           href: how-to-managed-cluster-networking.md
         - name: 관리형 클러스터 가용성 영역 스패닝 구성
           href: how-to-managed-cluster-availability-zones.md
@@ -414,14 +414,16 @@
           href: how-to-managed-cluster-managed-disk.md
         - name: 관리형 클러스터 업그레이드 옵션 구성
           href: how-to-managed-cluster-upgrades.md
-        - name: 관리형 클러스터 애플리케이션 비밀 배포
+        - name: 관리형 클러스터에 애플리케이션 비밀 배포
           href: how-to-managed-cluster-application-secrets.md
-        - name: ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포
+        - name: Azure Resource Manager를 사용하여 애플리케이션을 관리형 클러스터 배포
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: 관리 ID를 사용하여 관리형 클러스터 애플리케이션 배포
+        - name: 관리 ID가 있는 애플리케이션을 관리형 클러스터에 배포
           href: how-to-managed-cluster-application-managed-identity.md
         - name: 상태 비저장 전용 노드 형식을 관리형 클러스터에 배포
           href: how-to-managed-cluster-stateless-node-type.md
+        - name: 관리형 클러스터에서 대규모 크기 조정을 위한 보조 노드 유형 구성
+          href: how-to-managed-cluster-large-virtual-machine-scale-sets.md
         - name: 관리형 클러스터 노드에 관리 ID 사용
           href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: 개발 환경 설정
@@ -828,6 +830,10 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: 다른 Azure 리소스에 대한 액세스 권한 부여
           href: how-to-grant-access-other-resources.md
+    - name: 클러스터를 새 지역으로 마이그레이션
+      items:
+        - name: Azure Service Fabric 클러스터를 새 지역으로 이동하는 방법
+          href: service-fabric-cluster-region-move.md
     - name: Cloud Services에서 마이그레이션
       items:
         - name: Cloud Services와 Service Fabric 비교

@@ -34,6 +34,8 @@
           href: quickstart-deploy-infrastructure-vnet-azure-cli.md
         - name: Terraform을 사용하여 프로비전
           href: quickstart-deploy-infrastructure-vnet-terraform.md
+        - name: Bicep을 사용하여 프로비전
+          href: quickstart-deploy-infrastructure-vnet-bicep.md
 - name: 자습서
   items:
     - name: 경고 및 작업 그룹
@@ -132,6 +134,8 @@
           href: structured-app-log.md
         - name: New Relic Java In Process 에이전트
           href: how-to-new-relic-monitor.md
+        - name: 앱 수명 주기 이벤트 모니터링
+          href: monitor-app-lifecycle-events.md
     - name: 네트워크
       items:
         - name: 가상 네트워크에 Azure Spring Cloud 배포

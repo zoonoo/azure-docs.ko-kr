@@ -184,6 +184,8 @@
           items:
             - name: 자격 증명 모음에서 여러 SQL Server VM 백업
               href: backup-sql-server-database-azure-vms.md
+            - name: SQL 가용성 그룹 백업
+              href: backup-sql-server-on-availability-groups.md
             - name: VM 창에서 SQL Server VM 백업
               href: backup-sql-server-vm-from-vm-pane.md
         - name: 복원

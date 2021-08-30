@@ -259,8 +259,9 @@
             - name: 보안 웹 서비스 구성
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
-            - name: 방화벽 구성
+            - name: 필요한 네트워크 트래픽 구성
               href: how-to-access-azureml-behind-firewall.md
+              displayName: 'firewall, user-defined route, udr'
         - name: 데이터 보호
           items:
             - name: 장애 조치(failover) 및 재해 복구
