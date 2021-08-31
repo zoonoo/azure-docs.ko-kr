@@ -81,6 +81,8 @@
           href: certificate-signing-options.md
         - name: 인증서 관리
           href: manage-certificates-for-federated-single-sign-on.md
+        - name: 동의 피싱으로부터 보호
+          href: protect-against-consent-phishing.md
         - name: 테넌트 제한 사항
           href: tenant-restrictions.md
         - name: SAML 토큰 암호화 구성

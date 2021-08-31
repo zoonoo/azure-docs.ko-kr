@@ -43,16 +43,14 @@
     - name: 서비스 지원 하위 프로토콜을 사용한 클라이언트 스트리밍
       href: tutorial-subprotocol.md
     - name: 인증 및 권한
-      href: 'https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions'
+      href: tutorial-permission.md
 - name: 방법 가이드
   expanded: true
   items:
     - name: 개발
       items:
-        - name: 하위 프로토콜 작업
-          href: 'https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols'
-        - name: 인증 및 권한
-          href: 'https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions'
+        - name: WebSocket 클라이언트를 만드는 방법
+          href: howto-websocket-connect.md
     - name: 보안
       items:
         - name: 액세스 키 보호
@@ -92,7 +90,15 @@
     - name: 함수 트리거 및 바인딩
       href: reference-functions-bindings.md
     - name: 서버 SDK
-      href: choose-server-sdks.md
+      items:
+        - name: 서버 SDK - C#
+          href: reference-server-sdk-csharp.md
+        - name: 서버 SDK - Java
+          href: reference-server-sdk-java.md
+        - name: 서버 SDK - JavaScript
+          href: reference-server-sdk-js.md
+        - name: 서버 SDK - Python
+          href: reference-server-sdk-python.md
     - name: REST API
       href: /rest/api/webpubsub
 - name: 리소스
