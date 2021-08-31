@@ -206,6 +206,8 @@
       items:
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/windows-virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
+        - name: 화면 캡처 보호
+          href: screen-capture-protection.md
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'
